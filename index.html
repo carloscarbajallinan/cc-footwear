@@ -1,0 +1,2562 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CC — Calzado de Tenis y Pádel • Estudio de Mercado & Tienda</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- System / Inter Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            appleBase: '#ffffff',
+            appleBg: '#f5f5f7',
+            appleText: '#1d1d1f',
+            appleMuted: '#86868b',
+            appleBlue: '#0071e3',
+            appleGreen: '#34c759',
+            appleOrange: '#ff9500',
+            appleRed: '#ff3b30',
+            appleLine: '#e5e5ea'
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', 'Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #f5f5f7;
+      color: #1d1d1f;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #d2d2d7;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-appleBg text-appleText selection:bg-neutral-900 selection:text-white">
+
+  <!-- Apple Compact Navigation (Height 48px, Backdrop Blur) -->
+  <header class="fixed top-0 left-0 right-0 z-50 h-12 bg-white/80 backdrop-blur-md border-b border-appleLine/60 transition-all duration-200">
+    <div class="max-w-5xl mx-auto h-full px-6 flex items-center justify-between text-[13px] tracking-tight">
+      
+      <!-- Logo Monogram -->
+      <a href="#hero" class="font-semibold text-base text-appleText tracking-tighter hover:opacity-70 transition">
+        CC
+      </a>
+
+      <!-- Navigation Items -->
+      <nav class="hidden md:flex items-center space-x-7 text-appleText/80">
+        <a href="#hero" class="hover:text-appleText transition">Court Master Pro</a>
+        <a href="#catalogo" class="hover:text-appleText transition">Colección</a>
+        <a href="#catalogo-benchmark" class="hover:text-appleText transition">Catálogo 43 Modelos</a>
+        <a href="#analytics-summary" class="hover:text-appleText transition text-appleBlue flex items-center gap-1">
+          <i data-lucide="bar-chart-2" class="w-3.5 h-3.5 stroke-[1.5]"></i> Estudio
+        </a>
+        <button onclick="openImportModal()" class="hover:text-appleText transition flex items-center gap-1">
+          <i data-lucide="package" class="w-3.5 h-3.5 stroke-[1.5] text-appleText"></i> Importar de China
+        </button>
+        <button onclick="openSourcesModal()" class="hover:text-appleText transition flex items-center gap-1">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 stroke-[1.5] text-appleGreen"></i> Auditoría de Fuentes
+        </button>
+        <a href="#garantia" class="hover:text-appleText transition">Garantía</a>
+      </nav>
+
+      <!-- Cart Button -->
+      <div class="flex items-center space-x-6">
+        <a href="https://docs.google.com/spreadsheets/d/1TiHim1R5Qx0sO33YZSk6KFRb3mKm-Wb2xBJoI_KwNIs/edit" target="_blank" class="hidden sm:inline text-xs text-appleMuted hover:text-appleBlue transition">
+          Google Sheet
+        </a>
+        <button onclick="toggleCartDrawer()" class="relative flex items-center text-appleText hover:opacity-70 transition" aria-label="Bolsa de compra">
+          <i data-lucide="shopping-bag" class="w-4 h-4 stroke-[1.5]"></i>
+          <span class="ml-1.5 text-xs text-appleMuted font-medium">1</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="pt-12">
+
+    <!-- HERO SECTION (EDITORIAL PRODUCT REVEAL) -->
+    <section id="hero" class="py-24 sm:py-32 px-6 bg-appleBase text-center">
+      <div class="max-w-4xl mx-auto space-y-4">
+        
+        <p class="text-xs uppercase tracking-widest text-appleMuted font-medium">
+          Calzado técnico de tenis y pádel
+        </p>
+
+        <h1 class="text-5xl sm:text-7xl font-semibold text-appleText tracking-tight">
+          Court Master Pro.
+        </h1>
+
+        <p class="text-lg sm:text-xl text-appleMuted max-w-xl mx-auto font-normal leading-relaxed">
+          Tracción total en polvo de ladrillo. Precisión milimétrica en cada frenada.
+        </p>
+
+        <p class="text-base text-appleText font-medium pt-1">
+          S/ 349
+        </p>
+
+        <div class="pt-4 flex items-center justify-center space-x-5">
+          <a href="#comprar" class="rounded-full bg-appleDark text-white px-7 py-3 text-sm font-medium hover:bg-neutral-800 transition">
+            Comprar
+          </a>
+          <a href="#analytics-summary" class="text-sm font-medium text-appleBlue hover:text-appleBlueHover flex items-center transition">
+            Ver estudio de mercado <i data-lucide="chevron-right" class="w-4 h-4 ml-0.5 stroke-[1.5]"></i>
+          </a>
+        </div>
+
+        <!-- Hero Clean Product Vector -->
+        <div class="pt-14 max-w-3xl mx-auto">
+          <div class="bg-appleBg rounded-3xl p-10 sm:p-16 flex items-center justify-center">
+            <div class="w-full max-w-lg aspect-[16/10] flex items-center justify-center">
+              <svg id="hero-vector" class="w-full h-full" viewBox="0 0 400 240" fill="none">
+                <path id="hero-sole-path" d="M40 185 C40 185 80 195 180 195 C280 195 350 185 365 170 C370 165 370 155 355 155 C340 155 320 162 260 162 C180 162 100 155 60 160 C40 162 35 175 40 185 Z" fill="#d97706"/>
+                <path d="M45 160 C55 160 100 165 180 165 C260 165 330 158 355 155 C350 145 340 142 320 142 C260 142 160 145 90 145 C65 145 50 150 45 160 Z" fill="#ffffff"/>
+                <path d="M160 160 C180 155 220 155 240 160 C235 142 225 135 180 135 C165 135 160 145 160 160 Z" fill="#1d1d1f"/>
+                <path id="hero-upper-path" d="M50 150 C50 150 70 100 120 85 C160 70 200 95 240 95 C280 95 320 115 345 140 C340 145 320 142 280 142 C200 142 100 145 50 150 Z" fill="#fcfcfc" stroke="#e5e5ea" stroke-width="1.5"/>
+                <path id="hero-shield-path" d="M300 125 C320 130 345 140 350 150 C335 155 315 150 300 145 Z" fill="#15803d" opacity="0.85"/>
+                <path d="M60 145 C55 125 65 95 105 85 C120 80 135 90 140 105 C115 105 85 115 75 140 Z" fill="#1d1d1f"/>
+                <path id="hero-stripe-path" d="M140 105 L220 140 M165 100 L245 135" stroke="#15803d" stroke-width="3" stroke-linecap="round"/>
+                <text x="82" y="123" font-family="-apple-system, sans-serif" font-size="15" font-weight="700" fill="#1d1d1f">CC</text>
+              </svg>
+            </div>
+          </div>
+          <p class="text-xs text-appleMuted mt-4">
+            CC Court Master Pro en Blanco Tiza. Suela espiga 360° para polvo de ladrillo.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: PDP INTERACTIVE CONFIGURATOR (VENTA DIRECTA) -->
+    <section id="comprar" class="py-24 sm:py-32 px-6 bg-appleBg">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 items-start">
+          
+          <!-- Product Visual Left Column -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="bg-appleBase rounded-3xl p-10 sm:p-14 flex items-center justify-center min-h-[420px]">
+              <div class="w-full max-w-md aspect-[16/10] flex items-center justify-center">
+                <svg id="config-vector" class="w-full h-full" viewBox="0 0 400 240" fill="none">
+                  <path id="config-sole-path" d="M40 185 C40 185 80 195 180 195 C280 195 350 185 365 170 C370 165 370 155 355 155 C340 155 320 162 260 162 C180 162 100 155 60 160 C40 162 35 175 40 185 Z" fill="#d97706"/>
+                  <path d="M45 160 C55 160 100 165 180 165 C260 165 330 158 355 155 C350 145 340 142 320 142 C260 142 160 145 90 145 C65 145 50 150 45 160 Z" fill="#ffffff"/>
+                  <path d="M160 160 C180 155 220 155 240 160 C235 142 225 135 180 135 C165 135 160 145 160 160 Z" fill="#1d1d1f"/>
+                  <path id="config-upper-path" d="M50 150 C50 150 70 100 120 85 C160 70 200 95 240 95 C280 95 320 115 345 140 C340 145 320 142 280 142 C200 142 100 145 50 150 Z" fill="#fcfcfc" stroke="#e5e5ea" stroke-width="1.5"/>
+                  <path id="config-shield-path" d="M300 125 C320 130 345 140 350 150 C335 155 315 150 300 145 Z" fill="#15803d" opacity="0.85"/>
+                  <path d="M60 145 C55 125 65 95 105 85 C120 80 135 90 140 105 C115 105 85 115 75 140 Z" fill="#1d1d1f"/>
+                  <path id="config-stripe-path" d="M140 105 L220 140 M165 100 L245 135" stroke="#15803d" stroke-width="3" stroke-linecap="round"/>
+                  <text x="82" y="123" font-family="-apple-system, sans-serif" font-size="15" font-weight="700" fill="#1d1d1f">CC</text>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Perspectives thumbnails -->
+            <div class="grid grid-cols-3 gap-3 text-center text-xs text-appleMuted">
+              <div class="bg-appleBase rounded-2xl p-4 cursor-pointer hover:opacity-80 transition" onclick="switchView('profile')">
+                <span class="block text-appleText font-medium">Perfil</span>
+                <span class="text-[11px]">Chasis TPU</span>
+              </div>
+              <div class="bg-appleBase rounded-2xl p-4 cursor-pointer hover:opacity-80 transition" onclick="switchView('sole')">
+                <span class="block text-appleText font-medium">Suela</span>
+                <span class="text-[11px]">Espiga 360°</span>
+              </div>
+              <div class="bg-appleBase rounded-2xl p-4 cursor-pointer hover:opacity-80 transition" onclick="switchView('toe')">
+                <span class="block text-appleText font-medium">Puntera</span>
+                <span class="text-[11px]">Escudo Drag</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Configuration & Buy Form Right Column -->
+          <div class="lg:col-span-5 space-y-8">
+            <div class="space-y-1">
+              <p class="text-xs uppercase tracking-wider text-appleMuted font-medium">
+                Edición de Lanzamiento • 300 pares
+              </p>
+              <h2 class="text-3xl sm:text-4xl font-semibold text-appleText tracking-tight">
+                CC Court Master Pro
+              </h2>
+              <p class="text-2xl font-medium text-appleText pt-2">
+                S/ 349
+              </p>
+            </div>
+
+            <!-- Color Palette Selector -->
+            <div class="space-y-3">
+              <div class="flex justify-between text-xs">
+                <span class="text-appleMuted">Color:</span>
+                <span id="selected-color-name" class="font-medium text-appleText">Blanco Tiza</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <button onclick="selectColor('white')" class="w-8 h-8 rounded-full bg-white border border-neutral-300 ring-2 ring-neutral-900 ring-offset-2 transition" id="btn-color-white" aria-label="Blanco Tiza"></button>
+                <button onclick="selectColor('black')" class="w-8 h-8 rounded-full bg-neutral-900 border border-neutral-800 ring-0 ring-neutral-900 ring-offset-2 transition" id="btn-color-black" aria-label="Negro Noche"></button>
+                <button onclick="selectColor('clay')" class="w-8 h-8 rounded-full bg-[#c25e3e] border border-amber-900 ring-0 ring-neutral-900 ring-offset-2 transition" id="btn-color-clay" aria-label="Arcilla Roland"></button>
+              </div>
+            </div>
+
+            <!-- Surface Selector -->
+            <div class="space-y-3">
+              <span class="text-xs text-appleMuted block">Tipo de suela:</span>
+              <div class="grid grid-cols-2 gap-2 text-xs">
+                <button onclick="selectSurface('clay')" id="surf-clay" class="py-3 px-4 rounded-full bg-neutral-900 text-white font-medium text-center transition">
+                  Polvo de Ladrillo
+                </button>
+                <button onclick="selectSurface('padel')" id="surf-padel" class="py-3 px-4 rounded-full bg-appleBase text-appleText font-medium text-center hover:bg-neutral-100 transition">
+                  Pádel & Omni
+                </button>
+              </div>
+            </div>
+
+            <!-- Size Selector -->
+            <div class="space-y-3">
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-appleMuted">Talla peruana (EUR):</span>
+                <button onclick="openSizeGuide()" class="text-appleBlue hover:text-appleBlueHover transition">
+                  Guía de medidas
+                </button>
+              </div>
+              <div class="grid grid-cols-6 gap-2 text-xs" id="size-button-group">
+                <button onclick="selectSize(this, '39')" class="py-3 rounded-full bg-appleBase text-appleText font-medium text-center hover:bg-neutral-100 transition">39</button>
+                <button onclick="selectSize(this, '40')" class="py-3 rounded-full bg-appleBase text-appleText font-medium text-center hover:bg-neutral-100 transition">40</button>
+                <button onclick="selectSize(this, '41')" class="py-3 rounded-full bg-neutral-900 text-white font-medium text-center transition">41</button>
+                <button onclick="selectSize(this, '42')" class="py-3 rounded-full bg-appleBase text-appleText font-medium text-center hover:bg-neutral-100 transition">42</button>
+                <button onclick="selectSize(this, '43')" class="py-3 rounded-full bg-appleBase text-appleText font-medium text-center hover:bg-neutral-100 transition">43</button>
+                <button onclick="selectSize(this, '44')" class="py-3 rounded-full bg-appleBase text-appleText font-medium text-center hover:bg-neutral-100 transition">44</button>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="space-y-4 pt-2">
+              <button onclick="addToBag()" class="w-full py-4 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 transition">
+                Añadir a la bolsa
+              </button>
+              <div class="space-y-2 text-xs text-appleMuted pt-2">
+                <p class="flex items-center">
+                  <i data-lucide="check" class="w-3.5 h-3.5 mr-2 stroke-[2] text-appleText"></i>
+                  Envío gratuito en 24 horas a Lima Metropolitana.
+                </p>
+                <p class="flex items-center">
+                  <i data-lucide="check" class="w-3.5 h-3.5 mr-2 stroke-[2] text-appleText"></i>
+                  Primer cambio de talla gratis a domicilio.
+                </p>
+                <p class="flex items-center">
+                  <i data-lucide="check" class="w-3.5 h-3.5 mr-2 stroke-[2] text-appleText"></i>
+                  Garantía de agarre de 30 días en tu club.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: PLP / COLECCIÓN -->
+    <section id="catalogo" class="py-24 sm:py-32 px-6 bg-appleBase">
+      <div class="max-w-5xl mx-auto space-y-16">
+        <div class="space-y-3">
+          <p class="text-xs uppercase tracking-widest text-appleMuted font-medium">
+            Gama completa
+          </p>
+          <h2 class="text-4xl sm:text-5xl font-semibold text-appleText tracking-tight">
+            La colección.
+          </h2>
+          <p class="text-base text-appleMuted max-w-xl font-normal leading-relaxed">
+            Siluetas desarrolladas a partir del estudio de rendimiento en canchas de tenis y pádel de Lima.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-14">
+          <!-- Item 1 -->
+          <div class="space-y-4 cursor-pointer group" onclick="scrollToConfig('white')">
+            <div class="bg-appleBg rounded-3xl p-8 aspect-[4/3] flex items-center justify-center transition-transform group-hover:scale-[1.02] duration-300">
+              <svg class="w-48 h-32" viewBox="0 0 400 240" fill="none">
+                <path d="M40 185 C40 185 80 195 180 195 C280 195 350 185 365 170 C370 165 370 155 355 155 C340 155 320 162 260 162 C180 162 100 155 60 160 C40 162 35 175 40 185 Z" fill="#d97706"/>
+                <path d="M45 160 C55 160 100 165 180 165 C260 165 330 158 355 155 C350 145 340 142 320 142 C260 142 160 145 90 145 C65 145 50 150 45 160 Z" fill="#ffffff"/>
+                <path d="M160 160 C180 155 220 155 240 160 C235 142 225 135 180 135 C165 135 160 145 160 160 Z" fill="#1d1d1f"/>
+                <path d="M50 150 C50 150 70 100 120 85 C160 70 200 95 240 95 C280 95 320 115 345 140 C340 145 320 142 280 142 C200 142 100 145 50 150 Z" fill="#fcfcfc" stroke="#e5e5ea" stroke-width="1.5"/>
+                <path d="M300 125 C320 130 345 140 350 150 C335 155 315 150 300 145 Z" fill="#15803d" opacity="0.85"/>
+                <path d="M60 145 C55 125 65 95 105 85 C120 80 135 90 140 105 C115 105 85 115 75 140 Z" fill="#1d1d1f"/>
+                <text x="82" y="123" font-family="-apple-system, sans-serif" font-size="15" font-weight="700" fill="#1d1d1f">CC</text>
+              </svg>
+            </div>
+            <div class="space-y-1">
+              <h3 class="font-semibold text-lg text-appleText tracking-tight">Court Master Pro</h3>
+              <p class="text-xs text-appleMuted">Blanco Tiza • Suela Espiga Arcilla</p>
+              <p class="text-sm font-medium text-appleText pt-1">S/ 349</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="space-y-4 cursor-pointer group" onclick="scrollToConfig('black')">
+            <div class="bg-appleBg rounded-3xl p-8 aspect-[4/3] flex items-center justify-center transition-transform group-hover:scale-[1.02] duration-300">
+              <svg class="w-48 h-32" viewBox="0 0 400 240" fill="none">
+                <path d="M40 185 C40 185 80 195 180 195 C280 195 350 185 365 170 C370 165 370 155 355 155 C340 155 320 162 260 162 C180 162 100 155 60 160 C40 162 35 175 40 185 Z" fill="#18181b"/>
+                <path d="M45 160 C55 160 100 165 180 165 C260 165 330 158 355 155 C350 145 340 142 320 142 C260 142 160 145 90 145 C65 145 50 150 45 160 Z" fill="#27272a"/>
+                <path d="M160 160 C180 155 220 155 240 160 C235 142 225 135 180 135 C165 135 160 145 160 160 Z" fill="#10b981"/>
+                <path d="M50 150 C50 150 70 100 120 85 C160 70 200 95 240 95 C280 95 320 115 345 140 C340 145 320 142 280 142 C200 142 100 145 50 150 Z" fill="#18181b" stroke="#3f3f46" stroke-width="1.5"/>
+                <path d="M300 125 C320 130 345 140 350 150 C335 155 315 150 300 145 Z" fill="#10b981" opacity="0.85"/>
+                <path d="M60 145 C55 125 65 95 105 85 C120 80 135 90 140 105 C115 105 85 115 75 140 Z" fill="#09090b"/>
+                <text x="82" y="123" font-family="-apple-system, sans-serif" font-size="15" font-weight="700" fill="#ffffff">CC</text>
+              </svg>
+            </div>
+            <div class="space-y-1">
+              <h3 class="font-semibold text-lg text-appleText tracking-tight">Court Master Pro</h3>
+              <p class="text-xs text-appleMuted">Negro Noche • Suela Omni Pádel</p>
+              <p class="text-sm font-medium text-appleText pt-1">S/ 349</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="space-y-4 cursor-pointer group" onclick="scrollToConfig('clay')">
+            <div class="bg-appleBg rounded-3xl p-8 aspect-[4/3] flex items-center justify-center transition-transform group-hover:scale-[1.02] duration-300">
+              <svg class="w-48 h-32" viewBox="0 0 400 240" fill="none">
+                <path d="M40 185 C40 185 80 195 180 195 C280 195 350 185 365 170 C370 165 370 155 355 155 C340 155 320 162 260 162 C180 162 100 155 60 160 C40 162 35 175 40 185 Z" fill="#78350f"/>
+                <path d="M45 160 C55 160 100 165 180 165 C260 165 330 158 355 155 C350 145 340 142 320 142 C260 142 160 145 90 145 C65 145 50 150 45 160 Z" fill="#ffffff"/>
+                <path d="M160 160 C180 155 220 155 240 160 C235 142 225 135 180 135 C165 135 160 145 160 160 Z" fill="#1d1d1f"/>
+                <path d="M50 150 C50 150 70 100 120 85 C160 70 200 95 240 95 C280 95 320 115 345 140 C340 145 320 142 280 142 C200 142 100 145 50 150 Z" fill="#c25e3e" stroke="#9a3412" stroke-width="1.5"/>
+                <path d="M300 125 C320 130 345 140 350 150 C335 155 315 150 300 145 Z" fill="#ffffff" opacity="0.9"/>
+                <path d="M60 145 C55 125 65 95 105 85 C120 80 135 90 140 105 C115 105 85 115 75 140 Z" fill="#78350f"/>
+                <text x="82" y="123" font-family="-apple-system, sans-serif" font-size="15" font-weight="700" fill="#ffffff">CC</text>
+              </svg>
+            </div>
+            <div class="space-y-1">
+              <h3 class="font-semibold text-lg text-appleText tracking-tight">Court Master Pro</h3>
+              <p class="text-xs text-appleMuted">Arcilla Roland • Suela Espiga Profunda</p>
+              <p class="text-sm font-medium text-appleText pt-1">S/ 349</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- ESTUDIO DE MERCADO & ANALÍTICA (ESTILO APPLE HEALTH / DEVELOPER ANALYTICS) -->
+    <!-- ======================================================== -->
+
+    
+    <!-- SECTION: CATÁLOGO COMPLETO DE MERCADO (43 SILUETAS RELEVADAS) -->
+    <section id="catalogo-benchmark" class="py-24 sm:py-32 px-6 bg-appleBg border-t border-appleLine">
+      <div class="max-w-6xl mx-auto space-y-12">
+        
+        <!-- Section Header (Apple Editorial) -->
+        <div class="space-y-3">
+          <p class="text-xs uppercase tracking-widest text-appleMuted font-medium">
+            Benchmarking de Mercado • 15 Marcas Auditadas
+          </p>
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <h2 class="text-4xl sm:text-5xl font-semibold text-appleText tracking-tight">
+                Catálogo analizado.
+              </h2>
+              <p class="text-base text-appleMuted max-w-2xl font-normal leading-relaxed mt-2">
+                43 siluetas técnicas de tenis y pádel relevadas en Marathon, Falabella, ProPadel y catálogos globales. Compara precios, compuestos de suela, sistemas de estabilidad y amortiguación frente a CC.
+              </p>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1TiHim1R5Qx0sO33YZSk6KFRb3mKm-Wb2xBJoI_KwNIs/edit" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-appleBlue hover:underline font-medium flex-shrink-0">
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Abrir Google Sheet en vivo >
+            </a>
+          </div>
+        </div>
+
+        <!-- Filter & Search Controls (Apple Flat Minimalist) -->
+        <div class="space-y-4">
+          <!-- Search input -->
+          <div class="relative">
+            <i data-lucide="search" class="w-4 h-4 text-appleMuted absolute left-4 top-1/2 -translate-y-1/2"></i>
+            <input 
+              type="text" 
+              id="catalog-search-input" 
+              oninput="filterBenchmarkCatalog()" 
+              placeholder="Buscar por marca (ej. On, Asics, Bullpadel, Nike), modelo, suela o tecnología..." 
+              class="w-full bg-appleBase text-appleText text-xs sm:text-sm pl-11 pr-5 py-3.5 rounded-full outline-none focus:ring-1 focus:ring-appleBlue transition border-none placeholder-appleMuted"
+            />
+          </div>
+
+          <!-- Category Filter Pills -->
+          <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs" id="catalog-filter-chips">
+            <button onclick="setCatalogFilter('all', this)" class="catalog-filter-btn px-4 py-2 rounded-full bg-appleText text-appleBase font-medium transition whitespace-nowrap">
+              Todos (43)
+            </button>
+            <button onclick="setCatalogFilter('innovadoras', this)" class="catalog-filter-btn px-4 py-2 rounded-full bg-appleBase text-appleMuted hover:text-appleText font-medium transition whitespace-nowrap">
+              Innovadoras (On, Babolat, Bullpadel, Nox)
+            </button>
+            <button onclick="setCatalogFilter('clay', this)" class="catalog-filter-btn px-4 py-2 rounded-full bg-appleBase text-appleMuted hover:text-appleText font-medium transition whitespace-nowrap">
+              Tenis Polvo de Ladrillo (Clay)
+            </button>
+            <button onclick="setCatalogFilter('padel', this)" class="catalog-filter-btn px-4 py-2 rounded-full bg-appleBase text-appleMuted hover:text-appleText font-medium transition whitespace-nowrap">
+              Pádel & Omni
+            </button>
+            <button onclick="setCatalogFilter('gigantes', this)" class="catalog-filter-btn px-4 py-2 rounded-full bg-appleBase text-appleMuted hover:text-appleText font-medium transition whitespace-nowrap">
+              Gigantes Globales (Asics, Nike, Adidas...)
+            </button>
+            <button onclick="setCatalogFilter('cc', this)" class="catalog-filter-btn px-4 py-2 rounded-full bg-appleBase text-appleMuted hover:text-appleText font-medium transition whitespace-nowrap">
+              CC Footwear (3)
+            </button>
+          </div>
+        </div>
+
+        <!-- Catalog Counter Indicator -->
+        <div class="flex justify-between items-center text-xs text-appleMuted">
+          <span id="catalog-count-text">Mostrando 43 modelos</span>
+          <span>Valores en Soles (PEN) y equivalente USD</span>
+        </div>
+
+        <!-- 43 Products Responsive Grid -->
+        <div id="benchmark-catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+          <!-- Dynamically populated by renderBenchmarkCatalog() -->
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SECTION: RESUMEN EJECUTIVO DE MÉTRICAS (BIG NUMBERS + CONTEXTO) -->
+    <section id="analytics-summary" class="py-24 sm:py-32 px-6 bg-appleBg border-t border-appleLine">
+      <div class="max-w-5xl mx-auto space-y-14">
+        
+        <div class="space-y-3">
+          <p class="text-xs uppercase tracking-widest text-appleMuted font-medium">
+            Estudio de viabilidad comercial • Lote piloto 300 pares
+          </p>
+          <h2 class="text-4xl sm:text-5xl font-semibold text-appleText tracking-tight">
+            Resumen de mercado.
+          </h2>
+          <p class="text-base text-appleMuted max-w-xl font-normal leading-relaxed">
+            Indicadores fundamentales de costo, margen bruto y retorno financiero comparados frente a las marcas líderes en Lima.
+          </p>
+        </div>
+
+        <!-- 4 Big Number Surfaces (Flat #ffffff, Rounded-3xl, No gray borders, No heavy shadows) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Metric 1: PVP -->
+          <div class="bg-appleBase rounded-3xl p-8 space-y-3">
+            <span class="text-xs text-appleMuted font-medium block">PVP Objetivo (D2C)</span>
+            <div class="flex items-baseline space-x-2">
+              <span class="text-4xl font-bold tracking-tight text-appleText">S/ 349</span>
+            </div>
+            <p class="text-xs text-appleMuted leading-relaxed pt-1">
+              <span class="text-appleGreen font-medium">56% menor</span> que el promedio de alta gama (Asics Gel-Res 9 a S/ 799).
+            </p>
+          </div>
+
+          <!-- Metric 2: Margen Bruto -->
+          <div class="bg-appleBase rounded-3xl p-8 space-y-3">
+            <span class="text-xs text-appleMuted font-medium block">Margen Bruto</span>
+            <div class="flex items-baseline space-x-2">
+              <span class="text-4xl font-bold tracking-tight text-appleGreen">73.2%</span>
+            </div>
+            <p class="text-xs text-appleMuted leading-relaxed pt-1">
+              <span class="text-appleGreen font-medium">+28.2 pts</span> por encima del margen mayorista tradicional (45.0%).
+            </p>
+          </div>
+
+          <!-- Metric 3: Landed Cost -->
+          <div class="bg-appleBase rounded-3xl p-8 space-y-3">
+            <span class="text-xs text-appleMuted font-medium block">Costo Puesto en Mano</span>
+            <div class="flex items-baseline space-x-2">
+              <span class="text-4xl font-bold tracking-tight text-appleText">S/ 93.59</span>
+            </div>
+            <p class="text-xs text-appleMuted leading-relaxed pt-1">
+              FOB Jinjiang ($12.50) + arancel SUNAT 11% + courier y packaging de lujo.
+            </p>
+          </div>
+
+          <!-- Metric 4: Utilidad Líquida -->
+          <div class="bg-appleBase rounded-3xl p-8 space-y-3">
+            <span class="text-xs text-appleMuted font-medium block">Utilidad Lote 300</span>
+            <div class="flex items-baseline space-x-2">
+              <span class="text-4xl font-bold tracking-tight text-appleBlue">S/ 63,124</span>
+            </div>
+            <p class="text-xs text-appleMuted leading-relaxed pt-1">
+              Ganancia neta tras deducir S/ 45 de publicidad Meta Ads por par.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: BENCHMARKING DE PRECIOS Y MARCAS (APPLE MINIMALIST DATA CHART) -->
+    <section class="py-24 sm:py-32 px-6 bg-appleBase border-t border-appleLine">
+      <div class="max-w-5xl mx-auto space-y-16">
+        
+        <div class="space-y-3">
+          <p class="text-xs uppercase tracking-widest text-appleMuted font-medium">
+            Espectro de precios en Lima
+          </p>
+          <h2 class="text-4xl sm:text-5xl font-semibold text-appleText tracking-tight">
+            Curva de competidores.
+          </h2>
+          <p class="text-base text-appleMuted max-w-xl font-normal leading-relaxed">
+            Relevamiento de precios oficiales en tiendas especializadas y departamentales peruanas (Marathon, Falabella, ProPadel).
+          </p>
+        </div>
+
+        <!-- Clean Minimalist Bar Chart Surface -->
+        <div class="bg-appleBg rounded-3xl p-8 sm:p-12 space-y-8">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div>
+              <span class="text-xs text-appleMuted font-medium uppercase tracking-wider">Comparativa de Precios (Soles)</span>
+              <p class="text-sm font-medium text-appleText mt-0.5">Calzado de alta competición en polvo de ladrillo y pádel</p>
+            </div>
+            <div class="flex items-center space-x-4 text-xs">
+              <span class="flex items-center gap-1.5 text-appleMuted">
+                <span class="w-2.5 h-2.5 rounded-full bg-appleBlue"></span> Competidores
+              </span>
+              <span class="flex items-center gap-1.5 text-appleText font-medium">
+                <span class="w-2.5 h-2.5 rounded-full bg-appleGreen"></span> CC Court Master
+              </span>
+            </div>
+          </div>
+
+          <div class="h-72 w-full">
+            <canvas id="applePriceChart"></canvas>
+          </div>
+
+          <div class="pt-4 border-t border-appleLine text-xs text-appleMuted flex flex-col sm:flex-row justify-between gap-2">
+            <span>Datos auditados en tiendas físicas y virtuales de Lima (2026).</span>
+            <a href="https://docs.google.com/spreadsheets/d/1TiHim1R5Qx0sO33YZSk6KFRb3mKm-Wb2xBJoI_KwNIs/edit" target="_blank" class="text-appleBlue hover:underline">
+              Ver tabla completa en Google Sheet >
+            </a>
+          </div>
+        </div>
+
+        <!-- 3 Highlights Cards (Flat #ffffff surfaces, whitespace separation) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <div class="bg-appleBg rounded-3xl p-8 space-y-2">
+            <span class="text-xs text-appleMuted font-medium">Tope de gama suizo</span>
+            <h3 class="text-lg font-semibold text-appleText">On The Roger Pro</h3>
+            <p class="text-2xl font-bold text-appleText pt-1">S/ 849</p>
+            <p class="text-xs text-appleMuted leading-relaxed pt-2">
+              Placa Speedboard® de carbono 100%. CC ofrece estabilidad torsional comparable con chasis TPU Shank a S/ 500 menos.
+            </p>
+          </div>
+
+          <div class="bg-appleBg rounded-3xl p-8 space-y-2">
+            <span class="text-xs text-appleMuted font-medium">Referente de clubes</span>
+            <h3 class="text-lg font-semibold text-appleText">Asics Gel-Resolution 9</h3>
+            <p class="text-2xl font-bold text-appleText pt-1">S/ 799</p>
+            <p class="text-xs text-appleMuted leading-relaxed pt-2">
+              El calzado más vendido en Terrazas y Jockey Club. CC iguala el patrón en espiga 360° reduciendo 25g de peso total.
+            </p>
+          </div>
+
+          <div class="bg-appleBg rounded-3xl p-8 space-y-2">
+            <span class="text-xs text-appleMuted font-medium">Innovación pádel</span>
+            <h3 class="text-lg font-semibold text-appleText">Bullpadel Hack Vibram</h3>
+            <p class="text-2xl font-bold text-appleText pt-1">S/ 579</p>
+            <p class="text-xs text-appleMuted leading-relaxed pt-2">
+              Disco de giro Rotox para articulaciones. CC integra pivote perimetral en la versión Pádel & Omni a S/ 349.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: MODELOS DE NEGOCIO (APPLE HEALTH TRENDS STYLE) -->
+    <section id="analytics-models" class="py-24 sm:py-32 px-6 bg-appleBg border-t border-appleLine">
+      <div class="max-w-5xl mx-auto space-y-16">
+        
+        <div class="space-y-3">
+          <p class="text-xs uppercase tracking-widest text-appleMuted font-medium">
+            Rutas de comercialización
+          </p>
+          <h2 class="text-4xl sm:text-5xl font-semibold text-appleText tracking-tight">
+            Canales de venta.
+          </h2>
+          <p class="text-base text-appleMuted max-w-xl font-normal leading-relaxed">
+            Evaluación comparativa de margen bruto, periodo de liquidación y costo de adquisición por canal en Perú.
+          </p>
+        </div>
+
+        <!-- 4 Model Surfaces in Apple Health Trends style -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Model 1: D2C E-commerce (RECOMMENDED) -->
+          <div class="bg-appleBase rounded-3xl p-8 sm:p-10 space-y-6 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-semibold uppercase tracking-wider text-appleGreen">Canal Recomendado</span>
+                <span class="text-xs text-appleMuted">Cobro Inmediato</span>
+              </div>
+              <h3 class="text-2xl font-semibold text-appleText tracking-tight">1. Venta Directa (D2C Web)</h3>
+              <p class="text-xs text-appleMuted leading-relaxed">
+                Tienda oficial en línea con pauta digital segmentada en Lima y servicio de primer cambio de talla gratuito a domicilio.
+              </p>
+            </div>
+
+            <!-- Health-style progress bars -->
+            <div class="space-y-3 pt-4 border-t border-appleLine text-xs">
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-appleMuted">Margen Bruto de Contribución:</span>
+                  <span class="font-semibold text-appleGreen">73.2% (S/ 255.41 / par)</span>
+                </div>
+                <div class="w-full bg-appleBg rounded-full h-1.5 overflow-hidden">
+                  <div class="bg-appleGreen h-full rounded-full" style="width: 73.2%"></div>
+                </div>
+              </div>
+              <div class="flex justify-between text-appleMuted pt-1">
+                <span>Días promedio de cobro:</span>
+                <span class="text-appleText font-medium">0 días (Pasarela online)</span>
+              </div>
+              <div class="flex justify-between text-appleMuted">
+                <span>Costo de adquisición estimado (CAC):</span>
+                <span class="text-appleText font-medium">S/ 45.00 por par</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Model 2: B2B Clubes & Pro Shops -->
+          <div class="bg-appleBase rounded-3xl p-8 sm:p-10 space-y-6 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-semibold uppercase tracking-wider text-appleMuted">Volumen Seguro</span>
+                <span class="text-xs text-appleMuted">Crédito 15-30 días</span>
+              </div>
+              <h3 class="text-2xl font-semibold text-appleText tracking-tight">2. B2B Clubes & Pro Shops</h3>
+              <p class="text-xs text-appleMuted leading-relaxed">
+                Venta mayorista a pro-shops de clubes de tenis (Jockey Club, Rinconada, Terrazas) y centros privados de pádel.
+              </p>
+            </div>
+
+            <div class="space-y-3 pt-4 border-t border-appleLine text-xs">
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-appleMuted">Margen Bruto de Contribución:</span>
+                  <span class="font-semibold text-appleText">45.0% (S/ 110.00 / par)</span>
+                </div>
+                <div class="w-full bg-appleBg rounded-full h-1.5 overflow-hidden">
+                  <div class="bg-appleBlue h-full rounded-full" style="width: 45.0%"></div>
+                </div>
+              </div>
+              <div class="flex justify-between text-appleMuted pt-1">
+                <span>Días promedio de cobro:</span>
+                <span class="text-appleText font-medium">25 días (Consignación o crédito)</span>
+              </div>
+              <div class="flex justify-between text-appleMuted">
+                <span>Costo de adquisición comercial:</span>
+                <span class="text-appleText font-medium">S/ 10.00 por par</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Model 3: Marketplaces & Retail -->
+          <div class="bg-appleBase rounded-3xl p-8 sm:p-10 space-y-6 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-semibold uppercase tracking-wider text-appleMuted">Alcance Masivo</span>
+                <span class="text-xs text-appleMuted">Liquidación 45 días</span>
+              </div>
+              <h3 class="text-2xl font-semibold text-appleText tracking-tight">3. Retail & Marketplaces</h3>
+              <p class="text-xs text-appleMuted leading-relaxed">
+                Publicación en Falabella.com, Ripley y Marathon con fulfillment gestionado por las plataformas.
+              </p>
+            </div>
+
+            <div class="space-y-3 pt-4 border-t border-appleLine text-xs">
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-appleMuted">Margen Bruto tras Comisión:</span>
+                  <span class="font-semibold text-appleText">52.0% (Comisión 22%)</span>
+                </div>
+                <div class="w-full bg-appleBg rounded-full h-1.5 overflow-hidden">
+                  <div class="bg-neutral-400 h-full rounded-full" style="width: 52.0%"></div>
+                </div>
+              </div>
+              <div class="flex justify-between text-appleMuted pt-1">
+                <span>Días promedio de cobro:</span>
+                <span class="text-appleText font-medium">45 días</span>
+              </div>
+              <div class="flex justify-between text-appleMuted">
+                <span>Comisión de plataforma:</span>
+                <span class="text-appleText font-medium">S/ 76.78 por venta</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Model 4: Modelo Híbrido Escalonado -->
+          <div class="bg-appleBase rounded-3xl p-8 sm:p-10 space-y-6 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-semibold uppercase tracking-wider text-appleBlue">Estrategia Escalar</span>
+                <span class="text-xs text-appleMuted">D2C + Coaches</span>
+              </div>
+              <h3 class="text-2xl font-semibold text-appleText tracking-tight">4. Modelo Híbrido</h3>
+              <p class="text-xs text-appleMuted leading-relaxed">
+                Venta online directa respaldada por alianzas de comisión (S/ 35 por par) con profesores de tenis y pádel de Lima.
+              </p>
+            </div>
+
+            <div class="space-y-3 pt-4 border-t border-appleLine text-xs">
+              <div class="space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-appleMuted">Margen Ponderado:</span>
+                  <span class="font-semibold text-appleBlue">62.0%</span>
+                </div>
+                <div class="w-full bg-appleBg rounded-full h-1.5 overflow-hidden">
+                  <div class="bg-appleBlue h-full rounded-full" style="width: 62.0%"></div>
+                </div>
+              </div>
+              <div class="flex justify-between text-appleMuted pt-1">
+                <span>Credibilidad en cancha:</span>
+                <span class="text-appleText font-medium">Máxima (Recomendación directa)</span>
+              </div>
+              <div class="flex justify-between text-appleMuted">
+                <span>Costo de intermediación:</span>
+                <span class="text-appleText font-medium">10% de comisión fija al coach</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: COSTEO LANDED Y FLUJO DE COMERCIO EXTERIOR (WATERFALL TABLE) -->
+    <section id="analytics-cost" class="py-24 sm:py-32 px-6 bg-appleBase border-t border-appleLine">
+      <div class="max-w-5xl mx-auto space-y-16">
+        
+        <div class="space-y-3">
+          <p class="text-xs uppercase tracking-widest text-appleMuted font-medium">
+            Desglose unitario landed en Callao (SUNAT)
+          </p>
+          <h2 class="text-4xl sm:text-5xl font-semibold text-appleText tracking-tight">
+            Estructura de costos.
+          </h2>
+          <p class="text-base text-appleMuted max-w-xl font-normal leading-relaxed">
+            Cascada de costos desde la fábrica OEM en Jinjiang hasta la entrega en la puerta del cliente en Lima.
+          </p>
+        </div>
+
+        <!-- Clean Waterfall Minimal Table -->
+        <div class="bg-appleBg rounded-3xl p-8 sm:p-12 space-y-6">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead>
+                <tr class="text-appleMuted uppercase tracking-wider border-b border-appleLine pb-3">
+                  <th class="py-3 font-medium">Concepto</th>
+                  <th class="py-3 font-medium">Tipo</th>
+                  <th class="py-3 font-medium text-right">Por Par (USD)</th>
+                  <th class="py-3 font-medium text-right">Por Par (S/)</th>
+                  <th class="py-3 font-medium text-right">% sobre PVP</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-appleLine text-appleText">
+                <tr>
+                  <td class="py-3 font-medium">Costo de Fabricación FOB (Jinjiang)</td>
+                  <td class="py-3 text-appleMuted">Producto terminado</td>
+                  <td class="py-3 text-right">$12.50</td>
+                  <td class="py-3 text-right font-medium">S/ 46.88</td>
+                  <td class="py-3 text-right text-appleMuted">13.4%</td>
+                </tr>
+                <tr>
+                  <td class="py-3 font-medium">Flete Marítimo Internacional (Xiamen-Callao) + Seguro</td>
+                  <td class="py-3 text-appleMuted">Consolidado LCL</td>
+                  <td class="py-3 text-right">$1.65</td>
+                  <td class="py-3 text-right font-medium">S/ 6.19</td>
+                  <td class="py-3 text-right text-appleMuted">1.8%</td>
+                </tr>
+                <tr>
+                  <td class="py-3 font-medium">Arancel Ad Valorem SUNAT (11% sobre CIF)</td>
+                  <td class="py-3 text-appleMuted">Impuesto no recuperable</td>
+                  <td class="py-3 text-right">$1.56</td>
+                  <td class="py-3 text-right font-medium">S/ 5.84</td>
+                  <td class="py-3 text-right text-appleMuted">1.7%</td>
+                </tr>
+                <tr>
+                  <td class="py-3 font-medium">Gastos Portuarios, Almacén Callao & Agente Aduana</td>
+                  <td class="py-3 text-appleMuted">Despacho aduanero</td>
+                  <td class="py-3 text-right">$1.77</td>
+                  <td class="py-3 text-right font-medium">S/ 6.63</td>
+                  <td class="py-3 text-right text-appleMuted">1.9%</td>
+                </tr>
+                <tr>
+                  <td class="py-3 font-medium">Empaque de Lujo (Caja Rígida CC + Dustbag)</td>
+                  <td class="py-3 text-appleMuted">Branding & packaging</td>
+                  <td class="py-3 text-right">$2.00</td>
+                  <td class="py-3 text-right font-medium">S/ 7.50</td>
+                  <td class="py-3 text-right text-appleMuted">2.1%</td>
+                </tr>
+                <tr>
+                  <td class="py-3 font-medium">Courier Última Milla Lima + Reserva Cambio Talla</td>
+                  <td class="py-3 text-appleMuted">Logística local</td>
+                  <td class="py-3 text-right">$3.40</td>
+                  <td class="py-3 text-right font-medium">S/ 12.75</td>
+                  <td class="py-3 text-right text-appleMuted">3.7%</td>
+                </tr>
+                <tr>
+                  <td class="py-3 font-medium">Comisión Pasarela de Pago (Niubiz / Culqi 3.99%)</td>
+                  <td class="py-3 text-appleMuted">Costo financiero</td>
+                  <td class="py-3 text-right">$1.25</td>
+                  <td class="py-3 text-right font-medium">S/ 4.69</td>
+                  <td class="py-3 text-right text-appleMuted">1.3%</td>
+                </tr>
+                <tr class="font-bold text-sm bg-white/60">
+                  <td class="py-4 text-appleText">COSTO TOTAL DESEMBARCADO EN MANO</td>
+                  <td class="py-4 text-appleMuted font-normal">Landed Cost</td>
+                  <td class="py-4 text-right text-appleText">$24.96</td>
+                  <td class="py-4 text-right text-appleText">S/ 93.59</td>
+                  <td class="py-4 text-right text-appleText">26.8%</td>
+                </tr>
+                <tr class="font-bold text-sm bg-appleGreen/10 text-appleGreen">
+                  <td class="py-4">MARGEN BRUTO UNITARIO (PVP S/ 349.00)</td>
+                  <td class="py-4 font-normal">Contribución directa</td>
+                  <td class="py-4 text-right">$68.11</td>
+                  <td class="py-4 text-right">S/ 255.41</td>
+                  <td class="py-4 text-right font-bold">73.2%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="text-xs text-appleMuted">
+            *Cálculo sobre tipo de cambio referencial S/ 3.75. Incluye crédito fiscal de IGV (18%) deducible en la venta local.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: CRONOGRAMA DE DESEMBOLSOS (14 SEMANAS) -->
+    <section class="py-24 sm:py-32 px-6 bg-appleBg border-t border-appleLine">
+      <div class="max-w-5xl mx-auto space-y-16">
+        
+        <div class="space-y-3">
+          <p class="text-xs uppercase tracking-widest text-appleMuted font-medium">
+            Plan operativo y flujo de caja
+          </p>
+          <h2 class="text-4xl sm:text-5xl font-semibold text-appleText tracking-tight">
+            14 semanas.
+          </h2>
+          <p class="text-base text-appleMuted max-w-xl font-normal leading-relaxed">
+            Cronograma de hitos críticos y desembolsos de capital escalonados desde la muestra física hasta el levante aduanero en Callao.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="bg-appleBase rounded-3xl p-8 space-y-3">
+            <span class="text-xs font-semibold text-appleBlue uppercase tracking-wider">Semanas 1 a 3</span>
+            <h3 class="text-lg font-semibold text-appleText">Muestra & Arranque</h3>
+            <p class="text-2xl font-bold text-appleText pt-1">S/ 4,668</p>
+            <p class="text-xs text-appleMuted leading-relaxed pt-1">
+              Golden sample vía DHL ($120) + anticipo 30% FOB ($1,125) protegido con Alibaba Trade Assurance.
+            </p>
+          </div>
+
+          <div class="bg-appleBase rounded-3xl p-8 space-y-3">
+            <span class="text-xs font-semibold text-appleText uppercase tracking-wider">Semanas 4 a 7</span>
+            <h3 class="text-lg font-semibold text-appleText">Línea de Ensamble</h3>
+            <p class="text-2xl font-bold text-appleText pt-1">S/ 675</p>
+            <p class="text-xs text-appleMuted leading-relaxed pt-1">
+              Producción en Jinjiang ($0 de desembolso) + inspección pre-embarque PSI AQL 2.5 ($180).
+            </p>
+          </div>
+
+          <div class="bg-appleBase rounded-3xl p-8 space-y-3">
+            <span class="text-xs font-semibold text-appleText uppercase tracking-wider">Semanas 8 a 12</span>
+            <h3 class="text-lg font-semibold text-appleText">Saldo & Flete Pacífico</h3>
+            <p class="text-2xl font-bold text-appleText pt-1">S/ 11,700</p>
+            <p class="text-xs text-appleMuted leading-relaxed pt-1">
+              Saldo 70% FOB ($2,625) contra Bill of Lading + flete marítimo LCL consolidado ($495).
+            </p>
+          </div>
+
+          <div class="bg-appleBase rounded-3xl p-8 space-y-3">
+            <span class="text-xs font-semibold text-appleGreen uppercase tracking-wider">Semanas 12 a 14</span>
+            <h3 class="text-lg font-semibold text-appleText">Aduanas Callao & Venta</h3>
+            <p class="text-2xl font-bold text-appleGreen pt-1">S/ 104,700</p>
+            <p class="text-xs text-appleMuted leading-relaxed pt-1">
+              Liquidación SUNAT (S/ 5,050) y facturación total del lote con S/ 63,124 de ganancia neta.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: GARANTÍA DE CANCHA (RISK REVERSAL HERO BANNER) -->
+    <section id="garantia" class="py-24 sm:py-32 px-6 bg-appleBase text-center border-t border-appleLine">
+      <div class="max-w-2xl mx-auto space-y-6">
+        
+        <h2 class="text-4xl sm:text-5xl font-semibold text-appleText tracking-tight">
+          30 días en tu club.
+        </h2>
+
+        <p class="text-base text-appleMuted font-normal leading-relaxed">
+          Pide tu talla habitual. Juega tres partidos en tu club de preferencia. Si no sientes el agarre perfecto o no te convence el calce, coordinamos el retorno y te devolvemos el 100% de tu dinero.
+        </p>
+
+        <div class="pt-4">
+          <a href="#comprar" class="rounded-full bg-appleDark text-white px-8 py-3.5 text-sm font-medium hover:bg-neutral-800 transition">
+            Comprar CC Court Master Pro • S/ 349
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SLIDE-OVER BAG / CART (APPLE CLEAN SIDE PANEL) -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm hidden justify-end transition-opacity">
+    <div class="bg-white w-full max-w-md h-full flex flex-col justify-between p-8 sm:p-10 shadow-2xl overflow-y-auto custom-scrollbar">
+      
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-appleLine">
+          <h3 class="text-xl font-semibold text-appleText tracking-tight">
+            Tu bolsa.
+          </h3>
+          <button onclick="toggleCartDrawer()" class="text-appleMuted hover:text-appleText transition">
+            <i data-lucide="x" class="w-5 h-5 stroke-[1.5]"></i>
+          </button>
+        </div>
+
+        <div class="py-6 flex items-start space-x-5 border-b border-appleLine">
+          <div class="w-20 h-20 bg-appleBg rounded-2xl flex items-center justify-center shrink-0 p-2">
+            <span class="font-bold text-sm text-appleText tracking-tighter">CC</span>
+          </div>
+          <div class="flex-1 space-y-1">
+            <div class="flex justify-between items-baseline">
+              <h4 class="font-semibold text-sm text-appleText">Court Master Pro</h4>
+              <span class="text-sm font-medium text-appleText">S/ 349</span>
+            </div>
+            <p class="text-xs text-appleMuted" id="cart-item-desc">
+              Blanco Tiza • Talla 41 EUR • Polvo de Ladrillo
+            </p>
+            <p class="text-[11px] text-appleBlue pt-1">
+              Primer cambio de talla gratis a domicilio
+            </p>
+          </div>
+        </div>
+
+        <div class="py-6 space-y-2 text-xs">
+          <div class="flex justify-between text-appleMuted">
+            <span>Subtotal</span>
+            <span class="text-appleText font-medium">S/ 349</span>
+          </div>
+          <div class="flex justify-between text-appleMuted">
+            <span>Envío (Lima Metropolitana)</span>
+            <span class="text-appleText font-medium">Gratis</span>
+          </div>
+          <div class="flex justify-between text-appleMuted">
+            <span>Garantía de 30 días en cancha</span>
+            <span class="text-appleText font-medium">Incluida</span>
+          </div>
+          <div class="flex justify-between text-sm text-appleText font-semibold pt-4 border-t border-appleLine">
+            <span>Total</span>
+            <span>S/ 349</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-3 pt-6 border-t border-appleLine">
+        <button onclick="alert('Pedido completado con éxito.\n\nEn producción real, esta acción inicia la pasarela segura con Yape, Plin o Tarjeta de Crédito.')" class="w-full py-4 rounded-full bg-appleDark text-white text-sm font-medium hover:bg-neutral-800 transition">
+          Continuar con el pago
+        </button>
+        <p class="text-[11px] text-center text-appleMuted">
+          Aceptamos todas las tarjetas, Yape y transferencias bancarias.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL 1: PROCESO DETALLADO DE IMPORTACIÓN CHINA + CALCULADORA INTERACTIVA -->
+  <div id="import-process-modal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-y-auto custom-scrollbar shadow-2xl p-8 sm:p-12 space-y-10">
+      
+      <!-- Modal Header -->
+      <div class="flex items-start justify-between border-b border-appleLine pb-6">
+        <div class="space-y-1">
+          <p class="text-xs uppercase tracking-widest text-appleMuted font-medium">Cadena de Suministro OEM / ODM</p>
+          <h3 class="text-2xl sm:text-3xl font-semibold text-appleText tracking-tight">
+            Importación desde China con diseño propio.
+          </h3>
+          <p class="text-xs text-appleMuted max-w-2xl leading-relaxed">
+            Requerimientos legales, fases técnicas de matricería, costos aduaneros en Callao y simulador financiero interactivo.
+          </p>
+        </div>
+        <button onclick="closeImportModal()" class="text-appleMuted hover:text-appleText transition p-1">
+          <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+      </div>
+
+      <!-- Section 1: Requerimientos Obligatorios -->
+      <div class="space-y-4">
+        <h4 class="text-base font-semibold text-appleText tracking-tight">1. Requerimientos legales y aduaneros (Perú y China)</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div class="bg-appleBg p-5 rounded-2xl space-y-1">
+            <span class="font-semibold text-appleText block">RUC Activo y Habido en SUNAT</span>
+            <p class="text-appleMuted leading-relaxed">Persona natural con negocio (RUC 10) o jurídica (RUC 20). No requiere padrón especial de importador para operaciones ordinarias.</p>
+          </div>
+          <div class="bg-appleBg p-5 rounded-2xl space-y-1">
+            <span class="font-semibold text-appleText block">Subpartida Arancelaria Correcta</span>
+            <p class="text-appleMuted leading-relaxed">Partida 6404.11.00.00 (Calzado de tenis/deporte con suela de caucho/plástico y capellada textil) o 6402.19.00.00 (capellada sintética PU).</p>
+          </div>
+          <div class="bg-appleBg p-5 rounded-2xl space-y-1">
+            <span class="font-semibold text-appleText block">Reglamento de Etiquetado (D.S. 017-2004-PRODUCE)</span>
+            <p class="text-appleMuted leading-relaxed">Rotulado indeleble (cosido o impreso en lengüeta): país de origen, RUC del importador, composición exacta de capellada/forro/suela y talla.</p>
+          </div>
+          <div class="bg-appleBg p-5 rounded-2xl space-y-1">
+            <span class="font-semibold text-appleText block">Acuerdo NNN en Jurisdicción China</span>
+            <p class="text-appleMuted leading-relaxed">Contrato de no divulgación, no uso y no elusión (NNN Agreement) redactado en chino bajo tribunales de Fujian para proteger tu horma y diseño.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Proceso Paso a Paso -->
+      <div class="space-y-4">
+        <h4 class="text-base font-semibold text-appleText tracking-tight">2. Flujo de trabajo técnico: del diseño a la entrega</h4>
+        <div class="space-y-3 text-xs">
+          <div class="bg-appleBg p-4 rounded-2xl flex items-start space-x-4">
+            <span class="font-bold text-appleBlue text-sm">01</span>
+            <div>
+              <span class="font-semibold text-appleText block">Tech Pack & Archivo 3D de Horma (Last)</span>
+              <p class="text-appleMuted mt-0.5">Definición de vistas ortogonales 2D/3D, especificación de microfibra japonesa 1.4mm, patrón de perforaciones y tabla milimétrica de tolerancias.</p>
+            </div>
+          </div>
+          <div class="bg-appleBg p-4 rounded-2xl flex items-start space-x-4">
+            <span class="font-bold text-appleBlue text-sm">02</span>
+            <div>
+              <span class="font-semibold text-appleText block">Decisión de Matricería (Custom Tooling vs Open Mould)</span>
+              <p class="text-appleMuted mt-0.5"><strong>Opción Recomendada (Open Mould):</strong> Usar suelas existentes de alta gama en Jinjiang ($0 en moldes). <strong>Opción Exclusiva:</strong> Inversión de $1,800 a $3,500 USD en juego de moldes CNC de aluminio para 6 tallas.</p>
+            </div>
+          </div>
+          <div class="bg-appleBg p-4 rounded-2xl flex items-start space-x-4">
+            <span class="font-bold text-appleBlue text-sm">03</span>
+            <div>
+              <span class="font-semibold text-appleText block">Rondas de Muestreo (Proto -> Fit -> Golden Sample)</span>
+              <p class="text-appleMuted mt-0.5">Elaboración de muestra física para prueba de calce y tracción en arcilla en Lima ($120 USD vía DHL express). La 'Golden Sample' aprobada sirve de estándar contractual.</p>
+            </div>
+          </div>
+          <div class="bg-appleBg p-4 rounded-2xl flex items-start space-x-4">
+            <span class="font-bold text-appleBlue text-sm">04</span>
+            <div>
+              <span class="font-semibold text-appleText block">Anticipo 30% FOB & Producción en Línea (25-35 días)</span>
+              <p class="text-appleMuted mt-0.5">Pago protegido mediante Alibaba Trade Assurance. Troquelado láser, armado Strobel y prensado térmico de suela con jaula TPU.</p>
+            </div>
+          </div>
+          <div class="bg-appleBg p-4 rounded-2xl flex items-start space-x-4">
+            <span class="font-bold text-appleBlue text-sm">05</span>
+            <div>
+              <span class="font-semibold text-appleText block">Auditoría Pre-Embarque PSI (AQL 2.5) & Saldo 70% FOB</span>
+              <p class="text-appleMuted mt-0.5">Inspector independiente (QIMA/SGS) audita 32 cajas al azar ($180 USD). Con el reporte de calidad conforme, se libera el saldo contra Bill of Lading (B/L).</p>
+            </div>
+          </div>
+          <div class="bg-appleBg p-4 rounded-2xl flex items-start space-x-4">
+            <span class="font-bold text-appleBlue text-sm">06</span>
+            <div>
+              <span class="font-semibold text-appleText block">Tránsito Marítimo & Desaduanaje en Callao (32-36 días)</span>
+              <p class="text-appleMuted mt-0.5">Flete consolidado LCL ($450 USD). Llegada al Callao, liquidación de Ad Valorem (11%), IGV (18%), percepción aduanera y traslado a almacén en Lima.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Calculadora Interactiva de Importación -->
+      <div class="space-y-6 pt-4 border-t border-appleLine">
+        <div class="space-y-1">
+          <p class="text-xs uppercase tracking-widest text-appleGreen font-medium">Simulador en Vivo</p>
+          <h4 class="text-lg font-semibold text-appleText tracking-tight">3. Calculadora de costos, punto de equilibrio y retorno</h4>
+          <p class="text-xs text-appleMuted">Ajusta las variables de producción y matricería para proyectar la inversión y el beneficio neto en tiempo real.</p>
+        </div>
+
+        <!-- Sliders Controls -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 bg-appleBg p-6 sm:p-8 rounded-3xl text-xs">
+          
+          <div class="space-y-2">
+            <div class="flex justify-between font-medium">
+              <span class="text-appleMuted">Volumen del lote:</span>
+              <span id="calc-val-vol" class="text-appleText font-bold">300 pares</span>
+            </div>
+            <input type="range" id="calc-range-vol" min="150" max="1500" step="50" value="300" oninput="runInteractiveCalculator()" class="w-full accent-appleText bg-neutral-300 rounded-lg h-1.5 cursor-pointer">
+            <div class="flex justify-between text-[10px] text-appleMuted">
+              <span>150 (Piloto)</span>
+              <span>300 (MOQ Estándar)</span>
+              <span>1,500 (Escala)</span>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex justify-between font-medium">
+              <span class="text-appleMuted">Inversión en matricería de suela:</span>
+              <span id="calc-val-mold" class="text-appleText font-bold">$0 USD (Open Mould)</span>
+            </div>
+            <input type="range" id="calc-range-mold" min="0" max="3500" step="500" value="0" oninput="runInteractiveCalculator()" class="w-full accent-appleText bg-neutral-300 rounded-lg h-1.5 cursor-pointer">
+            <div class="flex justify-between text-[10px] text-appleMuted">
+              <span>$0 (Open Mould)</span>
+              <span>$1,800 (Aluminio)</span>
+              <span>$3,500 (Acero CNC)</span>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex justify-between font-medium">
+              <span class="text-appleMuted">Costo unitario FOB de fábrica:</span>
+              <span id="calc-val-fob" class="text-appleText font-bold">$12.50 USD</span>
+            </div>
+            <input type="range" id="calc-range-fob" min="10" max="18" step="0.5" value="12.5" oninput="runInteractiveCalculator()" class="w-full accent-appleText bg-neutral-300 rounded-lg h-1.5 cursor-pointer">
+            <div class="flex justify-between text-[10px] text-appleMuted">
+              <span>$10.00 (Económico)</span>
+              <span>$12.50 (Estándar CC)</span>
+              <span>$18.00 (Kevlar/Lujo)</span>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex justify-between font-medium">
+              <span class="text-appleMuted">PVP de venta al público en Lima:</span>
+              <span id="calc-val-pvp" class="text-appleText font-bold">S/ 349.00</span>
+            </div>
+            <input type="range" id="calc-range-pvp" min="260" max="480" step="10" value="349" oninput="runInteractiveCalculator()" class="w-full accent-appleText bg-neutral-300 rounded-lg h-1.5 cursor-pointer">
+            <div class="flex justify-between text-[10px] text-appleMuted">
+              <span>S/ 260 (Volumen)</span>
+              <span>S/ 349 (Equilibrado)</span>
+              <span>S/ 480 (Boutique)</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Big Number Results Grid (Apple Health Style) -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+          
+          <div class="bg-appleBg p-5 rounded-2xl space-y-1">
+            <span class="text-[11px] text-appleMuted block">Landed Cost Unitario</span>
+            <span id="calc-res-landed" class="text-2xl font-bold tracking-tight text-appleText">S/ 93.59</span>
+            <span class="text-[10px] text-appleMuted block">Costo total por par en mano</span>
+          </div>
+
+          <div class="bg-appleBg p-5 rounded-2xl space-y-1">
+            <span class="text-[11px] text-appleMuted block">Margen Bruto</span>
+            <span id="calc-res-margin" class="text-2xl font-bold tracking-tight text-appleGreen">73.2%</span>
+            <span class="text-[10px] text-appleMuted block">Contribución directa</span>
+          </div>
+
+          <div class="bg-appleBg p-5 rounded-2xl space-y-1">
+            <span class="text-[11px] text-appleMuted block">Punto de Equilibrio</span>
+            <span id="calc-res-breakeven" class="text-2xl font-bold tracking-tight text-appleText">81 pares</span>
+            <span class="text-[10px] text-appleMuted block">Para recuperar 100% capital</span>
+          </div>
+
+          <div class="bg-appleBg p-5 rounded-2xl space-y-1">
+            <span class="text-[11px] text-appleMuted block">Utilidad Neta Líquida</span>
+            <span id="calc-res-net" class="text-2xl font-bold tracking-tight text-appleBlue">S/ 63,124</span>
+            <span class="text-[10px] text-appleMuted block">Deduciendo pauta Meta Ads</span>
+          </div>
+
+        </div>
+
+        <div class="bg-appleBg p-5 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-xs">
+          <div>
+            <span class="font-semibold text-appleText">Capital Total de Inversión Inicial Requerido:</span>
+            <span id="calc-res-capital" class="font-bold text-appleText ml-1">S/ 28,077 PEN ($7,487 USD)</span>
+          </div>
+          <div class="text-appleGreen font-medium">
+            Retorno Proyectado sobre Capital (ROI): <span id="calc-res-roi" class="font-bold">151.8%</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="pt-6 border-t border-appleLine flex justify-between items-center text-xs">
+        <a href="https://docs.google.com/spreadsheets/d/1TiHim1R5Qx0sO33YZSk6KFRb3mKm-Wb2xBJoI_KwNIs/edit" target="_blank" class="text-appleBlue hover:underline flex items-center gap-1">
+          <i data-lucide="file-spreadsheet" class="w-4 h-4 stroke-[1.5]"></i> Ver matriz en Google Sheet >
+        </a>
+        <button onclick="closeImportModal()" class="rounded-full bg-appleDark text-white px-6 py-2.5 text-xs font-medium hover:bg-neutral-800 transition">
+          Cerrar
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL 2: AUDITORÍA DE FUENTES Y RIGOR (HECHOS VALIDADOS VS ESTIMACIONES) -->
+  <div id="sources-audit-modal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-y-auto custom-scrollbar shadow-2xl p-8 sm:p-12 space-y-10">
+      
+      <!-- Modal Header -->
+      <div class="flex items-start justify-between border-b border-appleLine pb-6">
+        <div class="space-y-1">
+          <p class="text-xs uppercase tracking-widest text-appleGreen font-medium">Auditoría de Rigor & Transparencia</p>
+          <h3 class="text-2xl sm:text-3xl font-semibold text-appleText tracking-tight">
+            Fuentes validadas vs mediciones estimadas.
+          </h3>
+          <p class="text-xs text-appleMuted max-w-2xl leading-relaxed">
+            Distingue qué cifras provienen de leyes, aranceles aduaneros y auditorías de mercado, frente a supuestos y estimaciones empíricas.
+          </p>
+        </div>
+        <button onclick="closeSourcesModal()" class="text-appleMuted hover:text-appleText transition p-1">
+          <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+      </div>
+
+      <!-- Two-Column Contrast Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs items-start">
+        
+        <!-- Column 1: Hechos Validados con Fuente Oficial -->
+        <div class="space-y-4">
+          <div class="flex items-center space-x-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-appleGreen"></span>
+            <h4 class="font-semibold text-sm text-appleText uppercase tracking-wider">Hechos & Cifras con Fuente Oficial</h4>
+          </div>
+          <p class="text-appleMuted text-[11px] leading-relaxed">
+            Datos auditables al 100% respaldados por decretos supremos, normas aduaneras peruanas y relevamiento directo de tiendas.
+          </p>
+
+          <div class="space-y-3 pt-1">
+            
+            <div class="bg-appleBg p-4 rounded-2xl space-y-1">
+              <div class="flex justify-between items-baseline font-semibold text-appleText">
+                <span>Arancel Ad Valorem SUNAT: 11%</span>
+                <span class="text-appleGreen text-[11px]">Validado</span>
+              </div>
+              <p class="text-appleMuted">Fuente: Arancel de Aduanas del Perú (D.S. 342-2016-EF), subpartidas 6404.11.00.00 y 6402.19.00.00.</p>
+            </div>
+
+            <div class="bg-appleBg p-4 rounded-2xl space-y-1">
+              <div class="flex justify-between items-baseline font-semibold text-appleText">
+                <span>IGV (16%) + IPM (2%): 18%</span>
+                <span class="text-appleGreen text-[11px]">Validado</span>
+              </div>
+              <p class="text-appleMuted">Fuente: T.U.O. de la Ley del Impuesto General a las Ventas (D.S. 055-99-EF). Crédito fiscal recuperable.</p>
+            </div>
+
+            <div class="bg-appleBg p-4 rounded-2xl space-y-1">
+              <div class="flex justify-between items-baseline font-semibold text-appleText">
+                <span>Percepción del IGV: 10% / 3.5%</span>
+                <span class="text-appleGreen text-[11px]">Validado</span>
+              </div>
+              <p class="text-appleMuted">Fuente: Ley 28053 y D.S. 203-2003-EF. 10% en primera importación y 3.5% para importador frecuente.</p>
+            </div>
+
+            <div class="bg-appleBg p-4 rounded-2xl space-y-1">
+              <div class="flex justify-between items-baseline font-semibold text-appleText">
+                <span>Etiquetado Obligatorio de Calzado</span>
+                <span class="text-appleGreen text-[11px]">Validado</span>
+              </div>
+              <p class="text-appleMuted">Fuente: D.S. 017-2004-PRODUCE. Exige rotulado de país de origen, RUC del importador y porcentaje de materiales.</p>
+            </div>
+
+            <div class="bg-appleBg p-4 rounded-2xl space-y-1">
+              <div class="flex justify-between items-baseline font-semibold text-appleText">
+                <span>Tasa de Registro INDECOPI: S/ 534.99</span>
+                <span class="text-appleGreen text-[11px]">Validado</span>
+              </div>
+              <p class="text-appleMuted">Fuente: TUPA INDECOPI para registro de signo distintivo en Clase 25 Niza (D. Leg. 1075).</p>
+            </div>
+
+            <div class="bg-appleBg p-4 rounded-2xl space-y-1">
+              <div class="flex justify-between items-baseline font-semibold text-appleText">
+                <span>Precios de Retail en Lima (Nike, Asics, On)</span>
+                <span class="text-appleGreen text-[11px]">Validado</span>
+              </div>
+              <p class="text-appleMuted">Fuente: Relevamiento en marathostore.pe, falabella.com.pe y tiendas físicas de Lima (Noviembre 2026).</p>
+            </div>
+
+            <div class="bg-appleBg p-4 rounded-2xl space-y-1">
+              <div class="flex justify-between items-baseline font-semibold text-appleText">
+                <span>Norma de Control de Calidad: AQL 2.5</span>
+                <span class="text-appleGreen text-[11px]">Validado</span>
+              </div>
+              <p class="text-appleMuted">Fuente: Norma internacional ISO 2859-1 para muestreo estadístico de defectos en calzado.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Column 2: Mediciones Estimadas con Sustento Empírico -->
+        <div class="space-y-4">
+          <div class="flex items-center space-x-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-appleOrange"></span>
+            <h4 class="font-semibold text-sm text-appleText uppercase tracking-wider">Estimaciones con Sustento (Puntos de Riesgo)</h4>
+          </div>
+          <p class="text-appleMuted text-[11px] leading-relaxed">
+            Parámetros de mercado que no son fijos por ley y dependen de la negociación con fábricas, pasarelas y campañas publicitarias.
+          </p>
+
+          <div class="space-y-3 pt-1">
+            
+            <div class="bg-appleBg p-4 rounded-2xl space-y-1">
+              <div class="flex justify-between items-baseline font-semibold text-appleText">
+                <span>Costo FOB Fábrica: $11.50 - $13.50</span>
+                <span class="text-appleOrange text-[11px]">Estimación</span>
+              </div>
+              <p class="text-appleMuted leading-relaxed">
+                <strong>Sustento:</strong> Cotizaciones estándar del clúster de Jinjiang (Fujian) para calzado con Open Mould y microfibra PU. 
+                <br><em>Riesgo:</em> Si se añaden compuestos patentados (ej. Matryx con Kevlar) el costo puede escalar a $16.00-$18.00 USD.
+              </p>
+            </div>
+
+            <div class="bg-appleBg p-4 rounded-2xl space-y-1">
+              <div class="flex justify-between items-baseline font-semibold text-appleText">
+                <span>Flete Marítimo LCL: $450 USD / 2.5 CBM</span>
+                <span class="text-appleOrange text-[11px]">Estimación</span>
+              </div>
+              <p class="text-appleMuted leading-relaxed">
+                <strong>Sustento:</strong> Tarifa spot promedio de consolidadores vía Pacífico (Xiamen a Callao). 
+                <br><em>Riesgo:</em> Puede subir hasta 30% durante temporada alta navideña o previo al Año Nuevo Chino.
+              </p>
+            </div>
+
+            <div class="bg-appleBg p-4 rounded-2xl space-y-1">
+              <div class="flex justify-between items-baseline font-semibold text-appleText">
+                <span>Costo de Adquisición Digital (CAC): S/ 45.00</span>
+                <span class="text-appleOrange text-[11px]">Estimación</span>
+              </div>
+              <p class="text-appleMuted leading-relaxed">
+                <strong>Sustento:</strong> Benchmark de pauta en Meta Ads/TikTok para calzado D2C en Lima (ROAS promedio 3.2x).
+                <br><em>Riesgo:</em> Si la creatividad publicitaria no conecta, el CAC puede subir a S/ 65.00-75.00 reduciendo el margen neto.
+              </p>
+            </div>
+
+            <div class="bg-appleBg p-4 rounded-2xl space-y-1">
+              <div class="flex justify-between items-baseline font-semibold text-appleText">
+                <span>Inversión en Matricería Exclusiva: $2,500</span>
+                <span class="text-appleOrange text-[11px]">Estimación</span>
+              </div>
+              <p class="text-appleMuted leading-relaxed">
+                <strong>Sustento:</strong> Tarifa de fresado CNC para moldes de aluminio en 6 tallas.
+                <br><em>Mitigación:</em> Se reduce a <strong>$0 USD</strong> eligiendo suelas Open Mould existentes en la fábrica.
+              </p>
+            </div>
+
+            <div class="bg-appleBg p-4 rounded-2xl space-y-1">
+              <div class="flex justify-between items-baseline font-semibold text-appleText">
+                <span>Tasa de Devolución/Cambio: 10%</span>
+                <span class="text-appleOrange text-[11px]">Estimación</span>
+              </div>
+              <p class="text-appleMuted leading-relaxed">
+                <strong>Sustento:</strong> Promedio de la industria para venta de calzado online. Se absorbe con la reserva de S/ 2.25 por par.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="pt-6 border-t border-appleLine flex justify-end">
+        <button onclick="closeSourcesModal()" class="rounded-full bg-appleDark text-white px-6 py-2.5 text-xs font-medium hover:bg-neutral-800 transition">
+          Cerrar Auditoría
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- APPLE MINIMAL FOOTER -->
+  <footer class="bg-appleBg text-appleMuted py-16 px-6 text-xs border-t border-appleLine">
+    <div class="max-w-5xl mx-auto space-y-6">
+      
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 border-b border-appleLine">
+        <div class="flex items-center space-x-3">
+          <span class="font-semibold text-appleText text-sm tracking-tight">CC Footwear</span>
+          <span>•</span>
+          <span>Lima, Perú</span>
+        </div>
+        <div class="flex items-center space-x-6 text-appleText/70">
+          <a href="https://docs.google.com/spreadsheets/d/1TiHim1R5Qx0sO33YZSk6KFRb3mKm-Wb2xBJoI_KwNIs/edit" target="_blank" class="hover:text-appleBlue transition">
+            Google Sheet de Costeo y Sourcing
+          </a>
+          <a href="#garantia" class="hover:text-appleBlue transition">
+            Términos de Garantía
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-[11px]">
+        <p>© 2026 CC Performance Footwear. Todos los derechos reservados.</p>
+        <p>Diseñado bajo los estándares de información y analítica de Apple.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    lucide.createIcons();
+
+    let currentColor = 'white';
+    let currentSurface = 'clay';
+    let currentSize = '41';
+
+    const colors = {
+      white: {
+        name: 'Blanco Tiza',
+        upper: '#fcfcfc',
+        sole: '#d97706',
+        shield: '#15803d',
+        stripe: '#15803d'
+      },
+      black: {
+        name: 'Negro Noche',
+        upper: '#18181b',
+        sole: '#18181b',
+        shield: '#10b981',
+        stripe: '#10b981'
+      },
+      clay: {
+        name: 'Arcilla Roland',
+        upper: '#c25e3e',
+        sole: '#78350f',
+        shield: '#ffffff',
+        stripe: '#ffffff'
+      }
+    };
+
+    function selectColor(colorKey) {
+      currentColor = colorKey;
+      const data = colors[colorKey];
+      document.getElementById('selected-color-name').innerText = data.name;
+
+      document.getElementById('hero-upper-path').setAttribute('fill', data.upper);
+      document.getElementById('hero-sole-path').setAttribute('fill', data.sole);
+      document.getElementById('hero-shield-path').setAttribute('fill', data.shield);
+      document.getElementById('hero-stripe-path').setAttribute('stroke', data.stripe);
+
+      document.getElementById('config-upper-path').setAttribute('fill', data.upper);
+      document.getElementById('config-sole-path').setAttribute('fill', data.sole);
+      document.getElementById('config-shield-path').setAttribute('fill', data.shield);
+      document.getElementById('config-stripe-path').setAttribute('stroke', data.stripe);
+
+      ['white', 'black', 'clay'].forEach(key => {
+        const btn = document.getElementById(`btn-color-${key}`);
+        if (key === colorKey) {
+          btn.className = btn.className.replace('ring-0', 'ring-2');
+        } else {
+          btn.className = btn.className.replace('ring-2', 'ring-0');
+        }
+      });
+
+      updateCartSummary();
+    }
+
+    function selectSurface(surfaceKey) {
+      currentSurface = surfaceKey;
+      const btnClay = document.getElementById('surf-clay');
+      const btnPadel = document.getElementById('surf-padel');
+
+      if (surfaceKey === 'clay') {
+        btnClay.className = "py-3 px-4 rounded-full bg-neutral-900 text-white font-medium text-center transition";
+        btnPadel.className = "py-3 px-4 rounded-full bg-appleBase text-appleText font-medium text-center hover:bg-neutral-100 transition";
+      } else {
+        btnPadel.className = "py-3 px-4 rounded-full bg-neutral-900 text-white font-medium text-center transition";
+        btnClay.className = "py-3 px-4 rounded-full bg-appleBase text-appleText font-medium text-center hover:bg-neutral-100 transition";
+      }
+
+      updateCartSummary();
+    }
+
+    function selectSize(button, sizeVal) {
+      currentSize = sizeVal;
+      const allBtns = document.querySelectorAll('#size-button-group button');
+      allBtns.forEach(btn => {
+        btn.className = "py-3 rounded-full bg-appleBase text-appleText font-medium text-center hover:bg-neutral-100 transition";
+      });
+      button.className = "py-3 rounded-full bg-neutral-900 text-white font-medium text-center transition";
+
+      updateCartSummary();
+    }
+
+    function updateCartSummary() {
+      const surfaceName = currentSurface === 'clay' ? 'Polvo de Ladrillo' : 'Pádel & Omni';
+      const colorName = colors[currentColor].name;
+      const text = `${colorName} • Talla ${currentSize} EUR • ${surfaceName}`;
+      document.getElementById('cart-item-desc').innerText = text;
+    }
+
+    function toggleCartDrawer() {
+      const drawer = document.getElementById('cart-drawer');
+      if (drawer.classList.contains('hidden')) {
+        drawer.classList.remove('hidden');
+        drawer.classList.add('flex');
+      } else {
+        drawer.classList.add('hidden');
+        drawer.classList.remove('flex');
+      }
+    }
+
+    function addToBag() {
+      toggleCartDrawer();
+    }
+
+    function scrollToConfig(colorKey) {
+      selectColor(colorKey);
+      document.getElementById('comprar').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function openSizeGuide() {
+      alert("Guía de tallas CC Footwear:\n\nEUR 39 = US 7 (25.0 cm)\nEUR 40 = US 7.5 (25.5 cm)\nEUR 41 = US 8.5 (26.5 cm) [Más común en Lima]\nEUR 42 = US 9 (27.0 cm)\nEUR 43 = US 10 (28.0 cm)\nEUR 44 = US 11 (29.0 cm)\n\nRecomendación: Pide tu número habitual de tenis. Si al probártelas requieres cambio, te lo llevamos sin costo a tu domicilio en Lima.");
+    }
+
+    function switchView(view) {
+      if (view === 'sole') {
+        alert("Suela de Espiga 360°: Ranuras de 3.2 mm de profundidad para evacuar automáticamente el polvo de ladrillo.");
+      } else if (view === 'toe') {
+        alert("Puntera Drag Shield: Escudo inyectado de TPU termosellado que previene roturas por fricción en el saque.");
+      }
+    }
+
+    // Modal Controllers for Import & Sources
+    function openImportModal() {
+      const modal = document.getElementById('import-process-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      runInteractiveCalculator();
+    }
+
+    function closeImportModal() {
+      const modal = document.getElementById('import-process-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function openSourcesModal() {
+      const modal = document.getElementById('sources-audit-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeSourcesModal() {
+      const modal = document.getElementById('sources-audit-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Interactive China Import & Margin Calculator Logic
+    function runInteractiveCalculator() {
+      const vol = parseInt(document.getElementById('calc-range-vol').value);
+      const mold = parseFloat(document.getElementById('calc-range-mold').value);
+      const fob = parseFloat(document.getElementById('calc-range-fob').value);
+      const pvp = parseFloat(document.getElementById('calc-range-pvp').value);
+
+      document.getElementById('calc-val-vol').innerText = `${vol} pares`;
+      document.getElementById('calc-val-mold').innerText = mold === 0 ? '$0 USD (Open Mould)' : `$${mold.toLocaleString()} USD (Custom CNC)`;
+      document.getElementById('calc-val-fob').innerText = `$${fob.toFixed(2)} USD`;
+      document.getElementById('calc-val-pvp').innerText = `S/ ${pvp.toFixed(2)}`;
+
+      const tc = 3.75;
+      const cacPEN = 45.00;
+
+      const freightPerPairUSD = 1.65;
+      const cifPerPairUSD = fob + freightPerPairUSD;
+      const adValoremUSD = cifPerPairUSD * 0.11;
+      const portLocalUSD = 1.77;
+      const packagingAndCourierUSD = 5.40;
+      const pvpUSD = pvp / tc;
+      const gatewayUSD = pvpUSD * 0.0399;
+      const moldPerPairUSD = mold / vol;
+
+      const landedPerPairUSD = fob + freightPerPairUSD + adValoremUSD + portLocalUSD + packagingAndCourierUSD + gatewayUSD + moldPerPairUSD;
+      const landedPerPairPEN = landedPerPairUSD * tc;
+
+      const grossMarginPEN = pvp - landedPerPairPEN;
+      const grossMarginPct = (grossMarginPEN / pvp) * 100;
+
+      const totalFOB_USD = fob * vol;
+      const totalFreight_USD = freightPerPairUSD * vol;
+      const totalTaxesLocal_USD = (adValoremUSD + portLocalUSD + (packagingAndCourierUSD * 0.5)) * vol;
+      const totalInitialCapitalUSD = totalFOB_USD + totalFreight_USD + totalTaxesLocal_USD + mold;
+      const totalInitialCapitalPEN = totalInitialCapitalUSD * tc;
+
+      const totalRevenuePEN = vol * pvp;
+      const totalMarketingPEN = vol * cacPEN;
+      const totalCostsPEN = landedPerPairPEN * vol;
+      const totalNetProfitPEN = totalRevenuePEN - totalCostsPEN - totalMarketingPEN;
+
+      const breakEvenUnits = Math.ceil(totalInitialCapitalPEN / pvp);
+      const roi = (totalNetProfitPEN / totalInitialCapitalPEN) * 100;
+
+      document.getElementById('calc-res-landed').innerText = `S/ ${landedPerPairPEN.toFixed(2)}`;
+      document.getElementById('calc-res-margin').innerText = `${grossMarginPct.toFixed(1)}%`;
+      document.getElementById('calc-res-breakeven').innerText = `${breakEvenUnits} pares`;
+      document.getElementById('calc-res-net').innerText = `S/ ${Math.round(totalNetProfitPEN).toLocaleString('en-US')}`;
+      document.getElementById('calc-res-capital').innerText = `S/ ${Math.round(totalInitialCapitalPEN).toLocaleString('en-US')} PEN ($${Math.round(totalInitialCapitalUSD).toLocaleString('en-US')} USD)`;
+      document.getElementById('calc-res-roi').innerText = `${roi.toFixed(1)}%`;
+    }
+
+    
+    // -------------------------------------------------------------
+    // DATASET DE MERCADO (43 SILUETAS RELEVADAS)
+    // -------------------------------------------------------------
+    const fullBenchmarkCatalog = [
+  {
+    "Marca": "On Running",
+    "Modelo": "THE ROGER Pro",
+    "Disciplina": "Tenis",
+    "Tipo_Suela": "Clay & Hard Court Espiga",
+    "Material_Capellada": "Engineered Mesh transpirable + Jaula TPU",
+    "Amortiguacion_Chasis": "Placa Speedboard 100% fibra de carbono + Helion HF",
+    "PVP_Peru_Soles": "849",
+    "PVP_USD_Equiv": "226",
+    "Segmento_Gama": "Ultra Premium / Lujo",
+    "Canal_Venta_Peru": "Marathon Store / Tiendas On Lima",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=OMTRPWW-1.jpg",
+    "Tecnologia_Patentada": "Speedboard Carbon + Helion HF",
+    "Ventaja_Competitiva": "Co-creada con Roger Federer; maxima rigidez torsional y estetica minimalista suiza"
+  },
+  {
+    "Marca": "On Running",
+    "Modelo": "THE ROGER Clubhouse Pro",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Omnicourt Espiga mixta",
+    "Material_Capellada": "Malla tecnica transpirable multicapa",
+    "Amortiguacion_Chasis": "Speedboard compuesto de polimero + CloudTec",
+    "PVP_Peru_Soles": "749",
+    "PVP_USD_Equiv": "200",
+    "Segmento_Gama": "Alta Gama Lujo",
+    "Canal_Venta_Peru": "Marathon Store / On.com",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=OMCHPWW-1.jpg",
+    "Tecnologia_Patentada": "CloudTec oculto + Speedboard",
+    "Ventaja_Competitiva": "Diseno hibrido adaptable a cemento césped de padel y arcilla"
+  },
+  {
+    "Marca": "On Running",
+    "Modelo": "THE ROGER Advantage",
+    "Disciplina": "Tenis Lifestyle",
+    "Tipo_Suela": "Plana Court retro",
+    "Material_Capellada": "Cuero sintetico vegano suave",
+    "Amortiguacion_Chasis": "Amortiguacion CloudTec oculta en mediasuela",
+    "PVP_Peru_Soles": "649",
+    "PVP_USD_Equiv": "173",
+    "Segmento_Gama": "Lifestyle / Court",
+    "Canal_Venta_Peru": "Marathon Store / Falabella",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=OMTRAWW-1.jpg",
+    "Tecnologia_Patentada": "CloudTec + Cuero Vegano",
+    "Ventaja_Competitiva": "Estetica retro minimalista de tenis urbano para uso diario"
+  },
+  {
+    "Marca": "Babolat",
+    "Modelo": "Jet Mach 3 Clay",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Michelin Performance Clay (Espiga profunda)",
+    "Material_Capellada": "Tejido Matryx EVO (aramida Kevlar y poliamida)",
+    "Amortiguacion_Chasis": "Inserto KPRSX EVA alta absorcion + Chasis lateral",
+    "PVP_Peru_Soles": "729",
+    "PVP_USD_Equiv": "194",
+    "Segmento_Gama": "Alta Competicion",
+    "Canal_Venta_Peru": "Babolat Peru / Tiendas Raqueta Lima",
+    "Imagen_Referencial": "https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BMJCSWG-1.jpg",
+    "Tecnologia_Patentada": "Suela Michelin Rubber + Matryx EVO",
+    "Ventaja_Competitiva": "Suela con caucho de neumaticos de rally ultra resistente a la abrasion"
+  },
+  {
+    "Marca": "Babolat",
+    "Modelo": "Propulse Fury 3",
+    "Disciplina": "Tenis",
+    "Tipo_Suela": "Clay Court Espiga reforzada",
+    "Material_Capellada": "Malla tecnica con correa Powerbelt de ajuste",
+    "Amortiguacion_Chasis": "KPRSX 2 EVA + Jaula exterior de soporte",
+    "PVP_Peru_Soles": "689",
+    "PVP_USD_Equiv": "184",
+    "Segmento_Gama": "Alta Competicion",
+    "Canal_Venta_Peru": "Babolat Peru / Falabella",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=BMPF3CW-1.jpg",
+    "Tecnologia_Patentada": "Powerbelt + Michelin Rubber",
+    "Ventaja_Competitiva": "Maximo bloqueo del talon y soporte para jugadores agresivos de fondo"
+  },
+  {
+    "Marca": "Babolat",
+    "Modelo": "Jet Tere 2 Clay",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Michelin Clay Herringbone",
+    "Material_Capellada": "Malla transpirable ultraligera de una pieza",
+    "Amortiguacion_Chasis": "Amortiguacion KPRSX en talon",
+    "PVP_Peru_Soles": "499",
+    "PVP_USD_Equiv": "133",
+    "Segmento_Gama": "Gama Media Competicion",
+    "Canal_Venta_Peru": "Babolat Peru / Marathon",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=BMJT2CW-1.jpg",
+    "Tecnologia_Patentada": "Michelin + Ultra Lightweight",
+    "Ventaja_Competitiva": "Opcion mas ligera y accesible de Babolat para canchas de arcilla"
+  },
+  {
+    "Marca": "Babolat",
+    "Modelo": "Movea Padel",
+    "Disciplina": "Padel",
+    "Tipo_Suela": "Michelin Padel 100% (Ranuras 360 Flex)",
+    "Material_Capellada": "Malla tecnica con doble correa Power Straps",
+    "Amortiguacion_Chasis": "Inserto KPRSX + Tacos perimetrales",
+    "PVP_Peru_Soles": "459",
+    "PVP_USD_Equiv": "122",
+    "Segmento_Gama": "Gama Media Padel",
+    "Canal_Venta_Peru": "Falabella / Pro Padel",
+    "Imagen_Referencial": "https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BMMOPB-1.jpg",
+    "Tecnologia_Patentada": "Michelin 360 Flex Padel",
+    "Ventaja_Competitiva": "Flexibilidad optimizada para los desplazamientos especificos de padel"
+  },
+  {
+    "Marca": "Bullpadel",
+    "Modelo": "Hack Hybrid Fly",
+    "Disciplina": "Padel",
+    "Tipo_Suela": "Vibram Hybrid 360 + Disco Rotox",
+    "Material_Capellada": "Tejido KNIT transpirable termosellado sin costuras",
+    "Amortiguacion_Chasis": "Mediasuela Phylon + estabilizador central TPU",
+    "PVP_Peru_Soles": "579",
+    "PVP_USD_Equiv": "154",
+    "Segmento_Gama": "Alta Competicion Padel",
+    "Canal_Venta_Peru": "Pro Padel Peru / Falabella",
+    "Imagen_Referencial": "https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BPHHMB-1.jpg",
+    "Tecnologia_Patentada": "Suela Vibram XS-Abrade + Disco Rotox",
+    "Ventaja_Competitiva": "Disco de rotacion Rotox en metatarso que protege los meniscos en giros rapidos"
+  },
+  {
+    "Marca": "Bullpadel",
+    "Modelo": "Vertex Grip",
+    "Disciplina": "Padel",
+    "Tipo_Suela": "Suela espiga con disco de giro",
+    "Material_Capellada": "Malla transpirable con termosellados de goma",
+    "Amortiguacion_Chasis": "Phylon amortiguador + contrafuerte BPS",
+    "PVP_Peru_Soles": "469",
+    "PVP_USD_Equiv": "125",
+    "Segmento_Gama": "Gama Media Padel",
+    "Canal_Venta_Peru": "Pro Padel Peru / Ripley",
+    "Imagen_Referencial": "https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BPVGMB-1.jpg",
+    "Tecnologia_Patentada": "BPS System + Espiga Padel",
+    "Ventaja_Competitiva": "Equilibrio solido entre amortiguacion y durabilidad en pistas de cesped"
+  },
+  {
+    "Marca": "Bullpadel",
+    "Modelo": "Flow Hybrid Fly",
+    "Disciplina": "Padel",
+    "Tipo_Suela": "Suela hibrida espiga microtacos",
+    "Material_Capellada": "Tejido KNIT ultraliviano flexible",
+    "Amortiguacion_Chasis": "Phylon reactivo de perfil bajo",
+    "PVP_Peru_Soles": "429",
+    "PVP_USD_Equiv": "114",
+    "Segmento_Gama": "Gama Media Padel",
+    "Canal_Venta_Peru": "Falabella / Pro Padel",
+    "Imagen_Referencial": "https://img.tenniswarehouse-europe.com/watermark/rs.php?path=BPFHMB-1.jpg",
+    "Tecnologia_Patentada": "Flow Hybrid Sole",
+    "Ventaja_Competitiva": "Diseno anatomico liviano co-desarrollado con jugadoras del circuito"
+  },
+  {
+    "Marca": "Nox",
+    "Modelo": "AT10 Lux (Agustin Tapia)",
+    "Disciplina": "Padel",
+    "Tipo_Suela": "Espiga profunda con tacos perimetrales",
+    "Material_Capellada": "Microfibra tecnica de alta densidad transpirable",
+    "Amortiguacion_Chasis": "Strobel Popcorn EVA + Soporte Lateral ensanchado",
+    "PVP_Peru_Soles": "549",
+    "PVP_USD_Equiv": "146",
+    "Segmento_Gama": "Innovacion Salud Podologica",
+    "Canal_Venta_Peru": "Padel Store Lima / Falabella",
+    "Imagen_Referencial": "https://img.tenniswarehouse-europe.com/watermark/rs.php?path=NXALMB-1.jpg",
+    "Tecnologia_Patentada": "Certificacion Clinica INP + AGG Drop",
+    "Ventaja_Competitiva": "Primera zapatilla avalada clinicamente por podologos deportivos para reducir lesiones"
+  },
+  {
+    "Marca": "Nox",
+    "Modelo": "ML10 Hexa (Miguel Lamperti)",
+    "Disciplina": "Padel",
+    "Tipo_Suela": "Espiga tradicional con disco de giro",
+    "Material_Capellada": "Textil transpirable con refuerzo lateral sintético",
+    "Amortiguacion_Chasis": "Amortiguacion Phylon con drop ergonomico",
+    "PVP_Peru_Soles": "499",
+    "PVP_USD_Equiv": "133",
+    "Segmento_Gama": "Gama Media Padel",
+    "Canal_Venta_Peru": "Padel Store Lima / Falabella",
+    "Imagen_Referencial": "https://img.tenniswarehouse-europe.com/watermark/rs.php?path=NXML10-1.jpg",
+    "Tecnologia_Patentada": "AGG Technology + Lateral Support",
+    "Ventaja_Competitiva": "Disenada para jugadores experimentados que buscan amortiguacion y menor fatiga"
+  },
+  {
+    "Marca": "Asics",
+    "Modelo": "Gel-Resolution 9 Clay",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "AHAR+ Clay Herringbone (Alta abrasion)",
+    "Material_Capellada": "Dynafit synthetic flexible + Jaula Dynawrap",
+    "Amortiguacion_Chasis": "Tecnologia Dynawall medial + Gel talon y antepie",
+    "PVP_Peru_Soles": "799",
+    "PVP_USD_Equiv": "213",
+    "Segmento_Gama": "Alta Competicion",
+    "Canal_Venta_Peru": "Falabella / Tiendas Especializadas Lima",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rsg.php?path=/reviews/AMGR9BB-Court2.jpg",
+    "Tecnologia_Patentada": "Dynawall Stability + Twistruss + AHAR+",
+    "Ventaja_Competitiva": "El estandar de oro mundial en estabilidad lateral para jugadores de fondo"
+  },
+  {
+    "Marca": "Asics",
+    "Modelo": "Court FF 3 Novak",
+    "Disciplina": "Tenis",
+    "Tipo_Suela": "Suela bipartida AHAR+ Clay",
+    "Material_Capellada": "Monosock envolvente con malla reforzada",
+    "Amortiguacion_Chasis": "FlyteFoam Bio + Tecnologia Twistruss dividida",
+    "PVP_Peru_Soles": "899",
+    "PVP_USD_Equiv": "240",
+    "Segmento_Gama": "Tope de Competicion",
+    "Canal_Venta_Peru": "Tiendas Tenis Lima / Falabella",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=AMCFF3W-1.jpg",
+    "Tecnologia_Patentada": "Twistruss Split + Bio FlyteFoam",
+    "Ventaja_Competitiva": "Calzado oficial de Novak Djokovic; maxima aceleracion y recuperacion"
+  },
+  {
+    "Marca": "Asics",
+    "Modelo": "Solution Speed FF 3",
+    "Disciplina": "Tenis",
+    "Tipo_Suela": "Clay Court Espiga anatomica",
+    "Material_Capellada": "Malla tejida ultraligera flexible",
+    "Amortiguacion_Chasis": "FlyteFoam reactivo + Speedtruss de aceleracion",
+    "PVP_Peru_Soles": "749",
+    "PVP_USD_Equiv": "200",
+    "Segmento_Gama": "Alta Competicion",
+    "Canal_Venta_Peru": "Tenis Shop Lima / Falabella",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=AMSS3WB-1.jpg",
+    "Tecnologia_Patentada": "FlyteFoam + Speedtruss",
+    "Ventaja_Competitiva": "La zapatilla mas rapida y ligera del circuito profesional"
+  },
+  {
+    "Marca": "Asics",
+    "Modelo": "Gel-Challenger 14 Clay",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "AHAR+ Clay Herringbone",
+    "Material_Capellada": "Piel sintetica estructurada con perforaciones",
+    "Amortiguacion_Chasis": "Amortiguacion Gel en talon + Wingwall lateral",
+    "PVP_Peru_Soles": "529",
+    "PVP_USD_Equiv": "141",
+    "Segmento_Gama": "Gama Media Alta",
+    "Canal_Venta_Peru": "Falabella / Marathon",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=AMGC14C-1.jpg",
+    "Tecnologia_Patentada": "Wingwall Lateral + Rear Gel",
+    "Ventaja_Competitiva": "Excelente relacion estabilidad-precio para jugadores de nivel intermedio"
+  },
+  {
+    "Marca": "Asics",
+    "Modelo": "Gel-Dedicate 8 Clay",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Clay Court Espiga completa",
+    "Material_Capellada": "Cuero sintetico superpuesto durable",
+    "Amortiguacion_Chasis": "Amortiguacion Gel en antepie + Sistema Trusstic",
+    "PVP_Peru_Soles": "369",
+    "PVP_USD_Equiv": "98",
+    "Segmento_Gama": "Gama Media Entrada",
+    "Canal_Venta_Peru": "Marathon / Falabella / Ripley",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=AMGD8CW-1.jpg",
+    "Tecnologia_Patentada": "Gel Antepie + Trusstic System",
+    "Ventaja_Competitiva": "La zapatilla mas recomendada en academias por su durabilidad de entrada"
+  },
+  {
+    "Marca": "Asics",
+    "Modelo": "Gel-Game 9 Clay",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Clay Court Espiga",
+    "Material_Capellada": "Malla abierta con superposiciones sinteticas",
+    "Amortiguacion_Chasis": "Mediasuela EVA con capsula de Gel en antepie",
+    "PVP_Peru_Soles": "399",
+    "PVP_USD_Equiv": "106",
+    "Segmento_Gama": "Gama Media",
+    "Canal_Venta_Peru": "Marathon / Falabella",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=AMGG9CW-1.jpg",
+    "Tecnologia_Patentada": "Forefoot Gel + Trusstic",
+    "Ventaja_Competitiva": "Comodidad y ventilacion optimas para jugadores de fin de semana"
+  },
+  {
+    "Marca": "Nike",
+    "Modelo": "NikeCourt Air Zoom Vapor Pro 2",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Clay Court Espiga completa",
+    "Material_Capellada": "Malla transpirable reforzada con TPU",
+    "Amortiguacion_Chasis": "Air Zoom en antepie + Jaula lateral rigida TPU",
+    "PVP_Peru_Soles": "699",
+    "PVP_USD_Equiv": "186",
+    "Segmento_Gama": "Alta Competicion",
+    "Canal_Venta_Peru": "Nike.pe / Marathon / Falabella",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=MVPR2WB-1.jpg",
+    "Tecnologia_Patentada": "Air Zoom Strobel + Lateral Cage",
+    "Ventaja_Competitiva": "Favorita del tour ATP por perfil bajo pegado a la pista y respuesta inmediata"
+  },
+  {
+    "Marca": "Nike",
+    "Modelo": "NikeCourt GP Challenge 1",
+    "Disciplina": "Tenis",
+    "Tipo_Suela": "Hard Court / All Court",
+    "Material_Capellada": "Sintetico microfibra + malla textil estructural",
+    "Amortiguacion_Chasis": "Doble unidad Air Zoom + Placa TPU de torsion",
+    "PVP_Peru_Soles": "749",
+    "PVP_USD_Equiv": "200",
+    "Segmento_Gama": "Alta Competicion",
+    "Canal_Venta_Peru": "Nike.pe / Marathon",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=MGPC1WW-1.jpg",
+    "Tecnologia_Patentada": "Doble Air Zoom + Midfoot TPU Plate",
+    "Ventaja_Competitiva": "Maxima estabilidad y absorcion de impacto en frenadas en seco"
+  },
+  {
+    "Marca": "Nike",
+    "Modelo": "NikeCourt Vapor Lite 2",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "All Court / Clay Herringbone",
+    "Material_Capellada": "Malla multicapa ventilada resistente",
+    "Amortiguacion_Chasis": "Espuma Phylon moldeada de doble densidad",
+    "PVP_Peru_Soles": "369",
+    "PVP_USD_Equiv": "98",
+    "Segmento_Gama": "Gama Media Entrada",
+    "Canal_Venta_Peru": "Marathon / Ripley / Falabella",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=MVL2WB-1.jpg",
+    "Tecnologia_Patentada": "Dual Density Phylon + Puntera TPU",
+    "Ventaja_Competitiva": "Excelente opcion de acceso al confort de la linea Vapor de Nike"
+  },
+  {
+    "Marca": "Nike",
+    "Modelo": "NikeCourt Air Zoom NXT",
+    "Disciplina": "Tenis",
+    "Tipo_Suela": "All Court / Hard Court",
+    "Material_Capellada": "Malla de ingenieria ultraliviana flexible",
+    "Amortiguacion_Chasis": "Placa rigida de longitud completa + doble Zoom",
+    "PVP_Peru_Soles": "799",
+    "PVP_USD_Equiv": "213",
+    "Segmento_Gama": "Alta Competicion",
+    "Canal_Venta_Peru": "Nike.pe / Marathon",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=MNXTWB-1.jpg",
+    "Tecnologia_Patentada": "Full Length Flyplate + Double Zoom",
+    "Ventaja_Competitiva": "Retorno de energia supremo y placa impulsora en el antepie"
+  },
+  {
+    "Marca": "Adidas",
+    "Modelo": "Barricade 13",
+    "Disciplina": "Tenis",
+    "Tipo_Suela": "Suela Adiwear resistente al arrastre",
+    "Material_Capellada": "Malla tecnica con cuello Geofit acolchado",
+    "Amortiguacion_Chasis": "Sistema Torsion TPU + Espuma Repetitor+",
+    "PVP_Peru_Soles": "679",
+    "PVP_USD_Equiv": "181",
+    "Segmento_Gama": "Alta Competicion",
+    "Canal_Venta_Peru": "Adidas.pe / Marathon",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=AMB13WB-1.jpg",
+    "Tecnologia_Patentada": "Torsion System + Adituff Toe Shield",
+    "Ventaja_Competitiva": "Legendaria durabilidad con escudo Adituff contra arrastre de dedos"
+  },
+  {
+    "Marca": "Adidas",
+    "Modelo": "Adizero Ubersonic 4.1",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Clay Court (Espiga fina profunda)",
+    "Material_Capellada": "Tejido Primeknit de una pieza envolvente",
+    "Amortiguacion_Chasis": "Amortiguacion Lightstrike ultraliviana",
+    "PVP_Peru_Soles": "599",
+    "PVP_USD_Equiv": "160",
+    "Segmento_Gama": "Alta Competicion",
+    "Canal_Venta_Peru": "Adidas.pe / Falabella",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=AMU4WB-1.jpg",
+    "Tecnologia_Patentada": "Lightstrike Cushioning + Primeknit",
+    "Ventaja_Competitiva": "Sensacion de calcetin de velocidad pura sin puntos de presion"
+  },
+  {
+    "Marca": "Adidas",
+    "Modelo": "Defiant Speed 2",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Clay Court Espiga",
+    "Material_Capellada": "Malla ligera con refuerzos en zonas de friccion",
+    "Amortiguacion_Chasis": "Amortiguacion Lightstrike completa",
+    "PVP_Peru_Soles": "479",
+    "PVP_USD_Equiv": "128",
+    "Segmento_Gama": "Gama Media Alta",
+    "Canal_Venta_Peru": "Adidas.pe / Marathon",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=AMDS2WB-1.jpg",
+    "Tecnologia_Patentada": "Lightstrike + Adiwear",
+    "Ventaja_Competitiva": "Velocidad y agilidad con buena proteccion lateral"
+  },
+  {
+    "Marca": "Adidas",
+    "Modelo": "Gamecourt 2.0",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Clay Court (Espiga clasica)",
+    "Material_Capellada": "Malla abierta ligera con refuerzo sintetico",
+    "Amortiguacion_Chasis": "Mediasuela de espuma EVA completa",
+    "PVP_Peru_Soles": "299",
+    "PVP_USD_Equiv": "80",
+    "Segmento_Gama": "Gama Entrada",
+    "Canal_Venta_Peru": "Marathon / Falabella / Platanitos",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=AMGC2WB-1.jpg",
+    "Tecnologia_Patentada": "EVA Midsole + Adiwear",
+    "Ventaja_Competitiva": "Calzado de acceso masivo mas vendido para iniciacion en clubes"
+  },
+  {
+    "Marca": "Adidas",
+    "Modelo": "CourtJam Control 3",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Clay Court Espiga",
+    "Material_Capellada": "Malla transpirable con refuerzos de TPU",
+    "Amortiguacion_Chasis": "Amortiguacion Bounce reactiva en toda la planta",
+    "PVP_Peru_Soles": "399",
+    "PVP_USD_Equiv": "106",
+    "Segmento_Gama": "Gama Media",
+    "Canal_Venta_Peru": "Adidas.pe / Falabella",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=AMCJ3WB-1.jpg",
+    "Tecnologia_Patentada": "Bounce Cushioning + Torsion",
+    "Ventaja_Competitiva": "Gran confort y retorno elastico para entrenamientos intensos"
+  },
+  {
+    "Marca": "Adidas",
+    "Modelo": "Crazyquick Padel",
+    "Disciplina": "Padel",
+    "Tipo_Suela": "Suela especifica padel omni espiga",
+    "Material_Capellada": "Malla ligera flexible sin costuras",
+    "Amortiguacion_Chasis": "Espuma Slingframe para cambios de direccion",
+    "PVP_Peru_Soles": "449",
+    "PVP_USD_Equiv": "120",
+    "Segmento_Gama": "Gama Media Padel",
+    "Canal_Venta_Peru": "Falabella / Pro Padel",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=AMCQPW-1.jpg",
+    "Tecnologia_Patentada": "Slingframe + Padel Sole",
+    "Ventaja_Competitiva": "Suela disenada desde cero para el agarre sobre arena de padel"
+  },
+  {
+    "Marca": "Puma",
+    "Modelo": "Nova Court",
+    "Disciplina": "Padel / Tenis",
+    "Tipo_Suela": "Suela espiga con ranuras flexibles",
+    "Material_Capellada": "Piel sintetica PU microperforada",
+    "Amortiguacion_Chasis": "Espuma ProFoam EVA de alto rebote",
+    "PVP_Peru_Soles": "349",
+    "PVP_USD_Equiv": "93",
+    "Segmento_Gama": "Gama Media",
+    "Canal_Venta_Peru": "Puma.pe / Marathon",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=PMNCW-1.jpg",
+    "Tecnologia_Patentada": "ProFoam EVA + Rubber Court",
+    "Ventaja_Competitiva": "Confort inmediato y estetica limpia moderna con gran flexibilidad"
+  },
+  {
+    "Marca": "Puma",
+    "Modelo": "Solarstrike II Padel",
+    "Disciplina": "Padel",
+    "Tipo_Suela": "Omnicourt / Espiga combinada",
+    "Material_Capellada": "Malla con capas sinteticas soldadas",
+    "Amortiguacion_Chasis": "Fast rebound foam + Inserto talon",
+    "PVP_Peru_Soles": "399",
+    "PVP_USD_Equiv": "106",
+    "Segmento_Gama": "Gama Media",
+    "Canal_Venta_Peru": "Falabella / Marathon",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=PMSS2W-1.jpg",
+    "Tecnologia_Patentada": "Fast Rebound Foam + Heel Clip",
+    "Ventaja_Competitiva": "Diseno especifico para movimientos multidireccionales de padel"
+  },
+  {
+    "Marca": "Wilson",
+    "Modelo": "Rush Pro 4.0 Clay",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Duralast Clay Court (Espiga de alta traccion)",
+    "Material_Capellada": "Malla Sensifeel 2.0 con refuerzo de microfibra",
+    "Amortiguacion_Chasis": "Chasis 4D Support 2.0 antitorsion dividido",
+    "PVP_Peru_Soles": "649",
+    "PVP_USD_Equiv": "173",
+    "Segmento_Gama": "Alta Competicion",
+    "Canal_Venta_Peru": "Tiendas Tenis Lima / Falabella",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=WMR4CW-1.jpg",
+    "Tecnologia_Patentada": "4D Support Chassis 2.0 + Duralast",
+    "Ventaja_Competitiva": "Division del chasis en dos para control de torsion hacia adelante y soporte lateral"
+  },
+  {
+    "Marca": "Wilson",
+    "Modelo": "Bela Pro Padel",
+    "Disciplina": "Padel",
+    "Tipo_Suela": "Suela circular de rotacion + espiga",
+    "Material_Capellada": "Sintetico de alta tenacidad con hilos de aramida",
+    "Amortiguacion_Chasis": "Espuma Fused 8 Foam reactiva + chasis Kaos",
+    "PVP_Peru_Soles": "699",
+    "PVP_USD_Equiv": "186",
+    "Segmento_Gama": "Alta Competicion Padel",
+    "Canal_Venta_Peru": "Pro Padel Peru / Falabella",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=WMBPWB-1.jpg",
+    "Tecnologia_Patentada": "Fused 8 Foam + Suela Circular Padel",
+    "Ventaja_Competitiva": "Desarrollada durante 2 anos junto a Fernando Belasteguin para pistas con arena"
+  },
+  {
+    "Marca": "Wilson",
+    "Modelo": "Kaos Swift 1.5",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Duralast All Court / Clay",
+    "Material_Capellada": "Malla tecnica ultraligera con chasis Trueflex",
+    "Amortiguacion_Chasis": "Amortiguacion R-DST+ en antepie y talon",
+    "PVP_Peru_Soles": "529",
+    "PVP_USD_Equiv": "141",
+    "Segmento_Gama": "Gama Media Alta",
+    "Canal_Venta_Peru": "Falabella / Tenis Shop",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=WMKS15-1.jpg",
+    "Tecnologia_Patentada": "Kaos Trueflex Chassis + R-DST+",
+    "Ventaja_Competitiva": "Diseno hiperflexible enfocado en salidas explosivas"
+  },
+  {
+    "Marca": "Wilson",
+    "Modelo": "Kaos Stroke 2.0",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Duralast all court / clay",
+    "Material_Capellada": "Piel sintetica estructurada durable",
+    "Amortiguacion_Chasis": "Die Cut EVA + DF2 drop ergonomico de 9mm",
+    "PVP_Peru_Soles": "329",
+    "PVP_USD_Equiv": "88",
+    "Segmento_Gama": "Gama Entrada-Media",
+    "Canal_Venta_Peru": "Marathon / Falabella",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=WMKS2W-1.jpg",
+    "Tecnologia_Patentada": "DF2 Ergonomic Drop + Duralast",
+    "Ventaja_Competitiva": "Gran durabilidad para jugadores recreativos que buscan soporte basico"
+  },
+  {
+    "Marca": "Head",
+    "Modelo": "Revolt Pro 4.5 Clay",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Suela Hybrasion+ Clay espiga profunda",
+    "Material_Capellada": "Malla tecnica con chasis LockDown Strap",
+    "Amortiguacion_Chasis": "Head T-Kore 360 amortiguacion integral",
+    "PVP_Peru_Soles": "629",
+    "PVP_USD_Equiv": "168",
+    "Segmento_Gama": "Alta Competicion",
+    "Canal_Venta_Peru": "Head Peru / Falabella",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=HMRP45-1.jpg",
+    "Tecnologia_Patentada": "T-Kore 360 + Hybrasion+",
+    "Ventaja_Competitiva": "Construccion de tanque reforzado para jugadores pesados de fondo"
+  },
+  {
+    "Marca": "Head",
+    "Modelo": "Sprint Pro 3.5",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Hybrasion+ Clay Court",
+    "Material_Capellada": "Malla de malla sin costuras ultraliviana",
+    "Amortiguacion_Chasis": "Mediasuela EVA ventilada con Cooling System",
+    "PVP_Peru_Soles": "599",
+    "PVP_USD_Equiv": "160",
+    "Segmento_Gama": "Alta Competicion",
+    "Canal_Venta_Peru": "Head Peru / Marathon",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=HMSP35-1.jpg",
+    "Tecnologia_Patentada": "Head Cooling System + Delta Strap",
+    "Ventaja_Competitiva": "La opcion mas ventilada y fresca del catalogo de raquetas"
+  },
+  {
+    "Marca": "Joma",
+    "Modelo": "Slam Pro World Padel Tour",
+    "Disciplina": "Padel",
+    "Tipo_Suela": "Espiga profunda Clay Padel",
+    "Material_Capellada": "Nylon transpirable y TPU soldado",
+    "Amortiguacion_Chasis": "Sistema Reactive Ball + Stabilis de torsión",
+    "PVP_Peru_Soles": "349",
+    "PVP_USD_Equiv": "93",
+    "Segmento_Gama": "Gama Media Oficial WPT",
+    "Canal_Venta_Peru": "Falabella / Ripley / Joma Peru",
+    "Imagen_Referencial": "https://img.tenniswarehouse-europe.com/watermark/rs.php?path=JMSLPW-1.jpg",
+    "Tecnologia_Patentada": "Reactive Ball + Calzado Oficial WPT",
+    "Ventaja_Competitiva": "Calzado oficial del World Padel Tour con gran amortiguacion por menos de S/ 350"
+  },
+  {
+    "Marca": "Joma",
+    "Modelo": "T.Point Clay",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Suela de caucho DIN-40 resistente",
+    "Material_Capellada": "Microfibra de alta durabilidad con VTS ventilacion",
+    "Amortiguacion_Chasis": "Mediasuela Phylon doble densidad + Stabilis",
+    "PVP_Peru_Soles": "329",
+    "PVP_USD_Equiv": "88",
+    "Segmento_Gama": "Gama Entrada-Media",
+    "Canal_Venta_Peru": "Falabella / Mercado Libre",
+    "Imagen_Referencial": "https://img.tenniswarehouse-europe.com/watermark/rs.php?path=JMTPCW-1.jpg",
+    "Tecnologia_Patentada": "Stabilis + Caucho DIN-40",
+    "Ventaja_Competitiva": "Excelente durabilidad en pistas de polvo de ladrillo a precio accesible"
+  },
+  {
+    "Marca": "K-Swiss",
+    "Modelo": "Ultrashot 3 Clay",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "Aosta 7.0 rubber de alta traccion",
+    "Material_Capellada": "Malla transpirable con exoesqueleto TPU",
+    "Amortiguacion_Chasis": "Surgelite foam + Chasis de soporte 360",
+    "PVP_Peru_Soles": "629",
+    "PVP_USD_Equiv": "168",
+    "Segmento_Gama": "Alta Competicion",
+    "Canal_Venta_Peru": "Falabella / Tiendas Especializadas",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=KMU3CW-1.jpg",
+    "Tecnologia_Patentada": "Surgelite + Dragguard 7.0 Toe Shield",
+    "Ventaja_Competitiva": "Garantia de 6 meses contra desgaste de suela en competicion"
+  },
+  {
+    "Marca": "Mizuno",
+    "Modelo": "Wave Exceed Tour 6",
+    "Disciplina": "Tenis / Padel",
+    "Tipo_Suela": "DuRubber de durabilidad extrema",
+    "Material_Capellada": "Malla 3D-Solid flexible de ventilacion",
+    "Amortiguacion_Chasis": "Placa Mizuno Wave dinamica + Enerzy Foam",
+    "PVP_Peru_Soles": "689",
+    "PVP_USD_Equiv": "184",
+    "Segmento_Gama": "Alta Competicion",
+    "Canal_Venta_Peru": "Mizuno Peru / Tiendas Raqueta",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=MMWET6-1.jpg",
+    "Tecnologia_Patentada": "Mizuno Wave Plate + Enerzy Foam",
+    "Ventaja_Competitiva": "La zapatilla de tenis mas liviana y reactiva de fabricacion japonesa"
+  },
+  {
+    "Marca": "Lacoste",
+    "Modelo": "AG-LT23 Ultra",
+    "Disciplina": "Tenis",
+    "Tipo_Suela": "LineGrip rubber de alta traccion",
+    "Material_Capellada": "Tejido helicoidal Pique transpirable",
+    "Amortiguacion_Chasis": "LSRFoam en antepie + Chasis Pebax",
+    "PVP_Peru_Soles": "799",
+    "PVP_USD_Equiv": "213",
+    "Segmento_Gama": "Alta Competicion Lujo",
+    "Canal_Venta_Peru": "Lacoste Peru / Falabella",
+    "Imagen_Referencial": "https://img.tennis-warehouse.com/watermark/rs.php?path=LAGLT23-1.jpg",
+    "Tecnologia_Patentada": "Pebax Chassis + LSRFoam",
+    "Ventaja_Competitiva": "Calzado oficial de Daniil Medvedev; maxima absorcion y retorno"
+  },
+  {
+    "Marca": "CC Footwear",
+    "Modelo": "CC Court Master Pro - Clay Tenis",
+    "Disciplina": "Tenis",
+    "Tipo_Suela": "Clay Court Espiga 360 profunda (3.2mm)",
+    "Material_Capellada": "Microfibra PU japonesa de 1.4mm termosellada",
+    "Amortiguacion_Chasis": "Chasis TPU Shank antitorsion + Dual Phylon/EVA",
+    "PVP_Peru_Soles": "349",
+    "PVP_USD_Equiv": "93",
+    "Segmento_Gama": "Premium D2C (Revolucion Calidad-Precio)",
+    "Canal_Venta_Peru": "E-commerce Oficial Directo (ccfootwear.pe)",
+    "Imagen_Referencial": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800",
+    "Tecnologia_Patentada": "CC Torsion Armor + Microfiber Armor",
+    "Ventaja_Competitiva": "Mismas prestaciones que Asics y On por menos de la mitad de precio (Margen 73.2%)"
+  },
+  {
+    "Marca": "CC Footwear",
+    "Modelo": "CC Court Master Pro - Padel & Omni",
+    "Disciplina": "Padel",
+    "Tipo_Suela": "Espiga mixta con disco de giro en metatarso",
+    "Material_Capellada": "Microfibra PU japonesa reforzada con aletas laterales",
+    "Amortiguacion_Chasis": "Chasis TPU Shank + Cojin EVA de caidas",
+    "PVP_Peru_Soles": "349",
+    "PVP_USD_Equiv": "93",
+    "Segmento_Gama": "Premium D2C (Revolucion Calidad-Precio)",
+    "Canal_Venta_Peru": "E-commerce Oficial Directo (ccfootwear.pe)",
+    "Imagen_Referencial": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800",
+    "Tecnologia_Patentada": "Rotational Pivot + Lateral Shield",
+    "Ventaja_Competitiva": "Protege rodillas en giros rapidos sobre cesped con arena a precio de gama media"
+  }
+];
+
+    let currentCatalogFilter = 'all';
+
+    function renderBenchmarkCatalog(items) {
+      const grid = document.getElementById('benchmark-catalog-grid');
+      const countLabel = document.getElementById('catalog-count-text');
+      if (!grid) return;
+
+      countLabel.innerText = `Mostrando ${items.length} de ${fullBenchmarkCatalog.length} siluetas`;
+
+      if (items.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-16 text-center space-y-2">
+            <p class="text-appleText font-medium text-base">No se encontraron modelos con este criterio.</p>
+            <p class="text-appleMuted text-xs">Prueba buscando por marca (On, Babolat, Asics, Bullpadel) o tipo de suela.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = items.map((item) => {
+        const originalIndex = fullBenchmarkCatalog.findIndex(x => x.Modelo === item.Modelo && x.Marca === item.Marca);
+        const isCC = item.Marca === 'CC Footwear';
+        const brandBadge = isCC ? 'text-appleGreen' : 'text-appleMuted';
+        const priceBadge = isCC ? 'text-appleGreen' : 'text-appleText';
+        const pvpPen = Number(item.PVP_Peru_Soles).toLocaleString('es-PE');
+        const pvpUsd = Number(item.PVP_USD_Equiv).toLocaleString('en-US');
+
+        return `
+          <div class="bg-appleBase rounded-3xl p-6 space-y-4 cursor-pointer hover:scale-[1.01] transition-transform flex flex-col justify-between" onclick="openSkuModal(${originalIndex})">
+            <div class="space-y-4">
+              <div class="bg-appleBg rounded-2xl p-4 aspect-[4/3] flex items-center justify-center overflow-hidden">
+                <img 
+                  src="${item.Imagen_Referencial}" 
+                  alt="${item.Marca} ${item.Modelo}" 
+                  class="w-full h-full object-contain mix-blend-multiply" 
+                  loading="lazy"
+                  onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'flex flex-col items-center justify-center text-appleMuted space-y-1\'><svg class=\'w-12 h-12 stroke-current\' viewBox=\'0 0 24 24\' fill=\'none\' stroke-width=\'1.5\'><path d=\'M2 17l3-3 4 4 9-9 4 4\'/><path d=\'M12 5l-2-2-4 4 2 2\'/></svg><span class=\'text-[10px]\'>${item.Marca}</span></div>';"
+                />
+              </div>
+
+              <div class="space-y-1">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-semibold uppercase tracking-wider ${brandBadge}">${item.Marca}</span>
+                  <span class="text-[11px] text-appleMuted">${item.Disciplina}</span>
+                </div>
+                <h3 class="font-semibold text-base text-appleText tracking-tight line-clamp-1">${item.Modelo}</h3>
+                <p class="text-xs text-appleMuted line-clamp-1">${item.Tipo_Suela}</p>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-appleLine flex items-baseline justify-between">
+              <div>
+                <span class="text-base font-bold ${priceBadge}">S/ ${pvpPen}</span>
+                <span class="text-xs text-appleMuted ml-1.5">${pvpUsd}</span>
+              </div>
+              <span class="text-[11px] text-appleBlue font-medium hover:underline flex items-center gap-0.5">
+                Ficha técnica >
+              </span>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    function filterBenchmarkCatalog() {
+      const searchInput = document.getElementById('catalog-search-input');
+      const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
+
+      const filtered = fullBenchmarkCatalog.filter(item => {
+        // Category filter
+        let matchesCat = true;
+        if (currentCatalogFilter === 'innovadoras') {
+          matchesCat = ['On Running', 'Babolat', 'Bullpadel', 'Nox'].includes(item.Marca);
+        } else if (currentCatalogFilter === 'clay') {
+          matchesCat = item.Tipo_Suela.toLowerCase().includes('clay') || item.Tipo_Suela.toLowerCase().includes('espiga') || item.Tipo_Suela.toLowerCase().includes('arcilla');
+        } else if (currentCatalogFilter === 'padel') {
+          matchesCat = item.Disciplina.toLowerCase().includes('pádel') || item.Disciplina.toLowerCase().includes('padel') || item.Tipo_Suela.toLowerCase().includes('omni') || item.Tipo_Suela.toLowerCase().includes('padel');
+        } else if (currentCatalogFilter === 'gigantes') {
+          matchesCat = ['Asics', 'Nike', 'Adidas', 'Puma', 'Wilson', 'Head', 'Joma', 'K-Swiss', 'Mizuno', 'Lacoste'].includes(item.Marca);
+        } else if (currentCatalogFilter === 'cc') {
+          matchesCat = item.Marca === 'CC Footwear';
+        }
+
+        if (!matchesCat) return false;
+
+        // Query filter
+        if (!query) return true;
+        return (
+          item.Marca.toLowerCase().includes(query) ||
+          item.Modelo.toLowerCase().includes(query) ||
+          item.Disciplina.toLowerCase().includes(query) ||
+          item.Tipo_Suela.toLowerCase().includes(query) ||
+          item.Material_Capellada.toLowerCase().includes(query) ||
+          item.Amortiguacion_Chasis.toLowerCase().includes(query) ||
+          item.Tecnologia_Patentada.toLowerCase().includes(query)
+        );
+      });
+
+      renderBenchmarkCatalog(filtered);
+    }
+
+    function setCatalogFilter(filter, btn) {
+      currentCatalogFilter = filter;
+      document.querySelectorAll('.catalog-filter-btn').forEach(b => {
+        b.className = 'catalog-filter-btn px-4 py-2 rounded-full bg-appleBase text-appleMuted hover:text-appleText font-medium transition whitespace-nowrap';
+      });
+      if (btn) {
+        btn.className = 'catalog-filter-btn px-4 py-2 rounded-full bg-appleText text-appleBase font-medium transition whitespace-nowrap';
+      }
+      filterBenchmarkCatalog();
+    }
+
+    function openSkuModal(index) {
+      const item = fullBenchmarkCatalog[index];
+      if (!item) return;
+
+      const modal = document.getElementById('sku-detail-modal');
+      const content = document.getElementById('sku-modal-content');
+      if (!modal || !content) return;
+
+      const isCC = item.Marca === 'CC Footwear';
+      const pvpPen = Number(item.PVP_Peru_Soles).toLocaleString('es-PE');
+      const pvpUsd = Number(item.PVP_USD_Equiv).toLocaleString('en-US');
+
+      content.innerHTML = `
+        <div class="flex flex-col sm:flex-row gap-6 items-start">
+          <div class="w-full sm:w-1/2 bg-appleBg rounded-2xl p-6 aspect-[4/3] flex items-center justify-center">
+            <img 
+              src="${item.Imagen_Referencial}" 
+              alt="${item.Marca} ${item.Modelo}" 
+              class="w-full h-full object-contain mix-blend-multiply"
+              onerror="this.onerror=null; this.src='https://placehold.co/400x300/f5f5f7/1d1d1f?text=${encodeURIComponent(item.Modelo)}';"
+            />
+          </div>
+          <div class="w-full sm:w-1/2 space-y-3">
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider ${isCC ? 'text-appleGreen' : 'text-appleMuted'}">${item.Marca} • ${item.Segmento_Gama}</span>
+              <h3 class="text-2xl font-bold text-appleText tracking-tight mt-1">${item.Modelo}</h3>
+              <p class="text-xs text-appleMuted">${item.Disciplina} • ${item.Tipo_Suela}</p>
+            </div>
+            <div class="pt-2">
+              <span class="text-3xl font-bold text-appleText">S/ ${pvpPen}</span>
+              <span class="text-xs text-appleMuted ml-2">${pvpUsd} USD</span>
+            </div>
+            <div class="pt-2 text-xs text-appleMuted">
+              <span class="font-medium text-appleText">Canal oficial en Lima:</span> ${item.Canal_Venta_Peru}
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs pt-4 border-t border-appleLine">
+          <div class="bg-appleBg p-4 rounded-2xl space-y-1">
+            <span class="text-appleMuted font-medium">Capellada (Upper)</span>
+            <p class="text-appleText font-normal">${item.Material_Capellada}</p>
+          </div>
+          <div class="bg-appleBg p-4 rounded-2xl space-y-1">
+            <span class="text-appleMuted font-medium">Amortiguación & Chasis</span>
+            <p class="text-appleText font-normal">${item.Amortiguacion_Chasis}</p>
+          </div>
+          <div class="bg-appleBg p-4 rounded-2xl space-y-1">
+            <span class="text-appleMuted font-medium">Tecnología Patentada</span>
+            <p class="text-appleText font-normal">${item.Tecnologia_Patentada}</p>
+          </div>
+          <div class="bg-appleBg p-4 rounded-2xl space-y-1">
+            <span class="text-appleMuted font-medium">Ventaja Competitiva Auditada</span>
+            <p class="text-appleText font-normal">${item.Ventaja_Competitiva}</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-2xl ${isCC ? 'bg-appleGreen/10 text-appleGreen' : 'bg-appleBg text-appleText'} text-xs space-y-1.5">
+          <span class="font-semibold block uppercase tracking-wider text-[11px]">
+            ${isCC ? 'Propuesta de Valor CC' : 'Análisis de Arbitraje vs CC Court Master Pro'}
+          </span>
+          <p class="leading-relaxed">
+            ${isCC ? 'Modelo optimizado para polvo de ladrillo y pádel limeño con Landed Cost de S/ 93.59 y PVP S/ 349.00.' : 'El modelo ' + item.Modelo + ' se comercializa en Lima a S/ ' + pvpPen + '. La estructura técnica equivalente de CC (Mesh transpirable + Chasis TPU + Espiga profunda) ofrece rendimiento similar con un ahorro directo de S/ ' + Math.max(0, Number(item.PVP_Peru_Soles) - 349) + ' al consumidor final.'}
+          </p>
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function closeSkuModal() {
+      const modal = document.getElementById('sku-detail-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // Close modal on click outside
+    document.addEventListener('click', (e) => {
+      const modal = document.getElementById('sku-detail-modal');
+      if (modal && e.target === modal) {
+        closeSkuModal();
+      }
+    });
+
+    // Initialize catalog rendering
+    renderBenchmarkCatalog(fullBenchmarkCatalog);
+
+    // Chart.js Apple Minimalist Chart
+    const ctx = document.getElementById('applePriceChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [
+          'On The Roger Pro',
+          'Asics Gel-Res 9',
+          'Nike GP Challenge',
+          'Asics Solution FF',
+          'Babolat Jet Mach 3',
+          'Nike Vapor Pro 2',
+          'Adidas Barricade',
+          'Wilson Rush Pro',
+          'Bullpadel Hack',
+          'Nox AT10 Lux',
+          'CC Court Master'
+        ],
+        datasets: [{
+          data: [849, 799, 749, 749, 729, 699, 679, 649, 579, 549, 349],
+          backgroundColor: [
+            '#0071e3', '#0071e3', '#0071e3', '#0071e3', '#0071e3',
+            '#0071e3', '#0071e3', '#0071e3', '#0071e3', '#0071e3',
+            '#34c759' // Green for CC Court Master
+          ],
+          borderRadius: 6,
+          barThickness: 18
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#1d1d1f',
+            titleFont: { family: '-apple-system', size: 12, weight: '600' },
+            bodyFont: { family: '-apple-system', size: 12 },
+            padding: 10,
+            cornerRadius: 8,
+            displayColors: false,
+            callbacks: {
+              label: function(context) {
+                return 'PVP Lima: S/ ' + context.parsed.y + '.00';
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 1000,
+            ticks: {
+              stepSize: 250,
+              color: '#86868b',
+              font: { family: '-apple-system', size: 11 },
+              callback: function(val) { return 'S/ ' + val; }
+            },
+            grid: {
+              color: '#e5e5ea',
+              drawBorder: false,
+              lineWidth: 0.75
+            }
+          },
+          x: {
+            ticks: {
+              color: '#86868b',
+              font: { family: '-apple-system', size: 10 },
+              maxRotation: 45,
+              minRotation: 45
+            },
+            grid: { display: false }
+          }
+        }
+      }
+    });
+  </script>
+
+  <!-- MODAL: DETALLE TÉCNICO SKU (ESTILO APPLE SHEET) -->
+  <div id="sku-detail-modal" class="fixed inset-0 z-50 hidden bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 transition-opacity duration-300">
+    <div class="bg-appleBase rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-10 space-y-6 relative">
+      <button onclick="closeSkuModal()" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-appleBg flex items-center justify-center text-appleMuted hover:text-appleText transition" aria-label="Cerrar ficha">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- Content populated dynamically -->
+      <div id="sku-modal-content" class="space-y-6">
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
