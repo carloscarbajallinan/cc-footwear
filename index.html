@@ -1794,14 +1794,14 @@
           </div>
           <div>
             <select id="channelSelectFilter" onchange="filterMasterCatalog()" style="width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--gold-accent); outline: none; font-size: 0.88rem; background: #FFFDF9; font-weight: 500;">
-              <option value="all">📍 Dónde se Vende en Perú (Todos)</option>
-              <option value="Marathon Sports Perú">Marathon Sports Perú</option>
-              <option value="Falabella / Ripley">Falabella / Ripley</option>
-              <option value="ProPadel Perú / Padel Nuestro">ProPadel Perú / Padel Nuestro</option>
-              <option value="Tiendas Oficiales Mono-Marca (Jockey Plaza)">Tiendas Oficiales Mono-Marca (Jockey)</option>
-              <option value="Pro-Shops de Clubes (Terrazas, Jockey)">Pro-Shops de Clubes (Terrazas, Jockey)</option>
-              <option value="Venta Directa Oficial CC (D2C Lima)">Venta Directa Oficial CC (D2C Lima)</option>
-              <option value="Importación Especializada / D2C">Importación Especializada / D2C</option>
+              <option value="all">📍 Dónde se Vende en Perú (Todos: 1,268 SKUs)</option>
+              <option value="ProPadel Perú / Padel Nuestro">ProPadel Perú / Padel Nuestro (734 SKUs)</option>
+              <option value="Pro-Shops de Clubes (Terrazas, Jockey)">Pro-Shops de Clubes (288 SKUs)</option>
+              <option value="Falabella / Ripley">Falabella / Ripley (110 SKUs)</option>
+              <option value="Tiendas Oficiales Mono-Marca (Jockey Plaza)">Tiendas Mono-Marca Jockey (63 SKUs)</option>
+              <option value="Marathon Sports Perú">Marathon Sports Perú (42 SKUs)</option>
+              <option value="Importación Especializada / D2C">Importación Especializada (28 SKUs)</option>
+              <option value="Venta Directa Oficial CC (D2C Lima)">Venta Directa Oficial CC (3 Modelos D2C)</option>
             </select>
           </div>
           <div>
@@ -2067,6 +2067,9 @@
             <img id="storeMainPhoto" src="https://cdn.shopify.com/s/files/1/1218/5228/files/99_75e8bb1b-b849-4213-9378-4bdfb78e251a.png?v=1762466427" alt="CC Court Master Pro - Asics Reference 2025" class="store-main-img">
             <span class="badge-green" style="position: absolute; top: 16px; left: 16px; font-size: 0.75rem; padding: 4px 10px; border-radius: 8px;">
               Silueta de Competición 2025
+            </span>
+            <span id="storeAngleBadge" style="position: absolute; bottom: 16px; left: 16px; background: rgba(15,40,30,0.85); color: #DFCA9E; font-size: 0.75rem; padding: 4px 12px; border-radius: 12px; backdrop-filter: blur(4px);">
+              📷 Ángulo: Vista Lateral Exterior
             </span>
           </div>
 
@@ -32650,12 +32653,25 @@
     };
     let currentStoreColor = 'white';
 
+    const angleNames = [
+      'Vista Lateral Exterior',
+      'Vista Lateral Interior',
+      'Suela Espiga Clay 3mm (Polvo de Ladrillo)',
+      'Puntera Reforzada Frontal',
+      'Talón con Amortiguación Gel',
+      'Vista Cenital 360°'
+    ];
+
     function setStoreAngle(index, thumbEl) {
       const photos = storeColorways[currentStoreColor].angles;
       if (photos[index]) {
         document.getElementById('storeMainPhoto').src = photos[index];
         document.querySelectorAll('.store-thumb').forEach(t => t.classList.remove('active'));
         if (thumbEl) thumbEl.classList.add('active');
+        const badge = document.getElementById('storeAngleBadge');
+        if (badge && angleNames[index]) {
+          badge.innerText = '📷 Ángulo: ' + angleNames[index];
+        }
       }
     }
 
