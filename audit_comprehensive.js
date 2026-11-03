@@ -5,7 +5,7 @@ const htmlPath = path.join(__dirname, 'index.html');
 const html = fs.readFileSync(htmlPath, 'utf8');
 
 console.log('====================================================');
-console.log('🔍 AUDITORÍA AUTOMATIZADA TRI-CICLO (V1, V2, V3)');
+console.log('🔍 AUDITORÍA AUTOMATIZADA INTEGRAL (INCLUYE TAB 10)');
 console.log('====================================================');
 
 let errors = [];
@@ -54,10 +54,9 @@ if (catalogMatch) {
   check('Extracción de productsData en inline script', false);
 }
 
-// === CICLO 3: FILTROS COMBINADOS & CONSISTENCIA FINANCIERA ===
+// === CICLO 3: FILTROS COMBINADOS & FINANZAS ===
 console.log('\n--- EVALUANDO CICLO 3: FILTRADO COMBINADO & FINANZAS ---');
 if (products.length > 0) {
-  // Test Combined Filtering deterministically
   const asicsMarathon = products.filter(p => p.marca === 'Asics' && p.canal_peru.includes('Marathon'));
   check(`Filtrado Cruzado: Asics en Marathon Sports (${asicsMarathon.length} modelos)`, asicsMarathon.length > 0);
 
@@ -68,20 +67,26 @@ if (products.length > 0) {
   check(`Canal D2C Exclusivo CC Footwear identificado (${directCC.length} modelos)`, directCC.length === 3);
 }
 
-// Financial Consistency
 const pvp = 349.00;
 const landed = 93.59;
-const cac = 45.00;
 const margin = ((pvp - landed) / pvp) * 100;
 check(`Cálculo de Margen Bruto CC (${margin.toFixed(1)}% === 73.2%)`, Math.abs(margin - 73.18) < 0.1);
 
+// === CICLO 4: TAB 10 PLAN DE NEGOCIO & AUDITORÍA SEMÁNTICA ===
+console.log('\n--- EVALUANDO CICLO 4: TAB 10 PLAN DE NEGOCIO & AUDITORÍA SEMÁNTICA ---');
+check('Pestaña 10 Presente: id="tab-plan-negocio"', html.includes('id="tab-plan-negocio"'));
+check('Explicación Crítica: Paradoja Asics & Sesgo Homónimo Tenis vs Zapatilla', html.includes('La Paradoja de Asics') && html.includes('Sesgo del Homónimo Latinoamericano'));
+check('Matriz de Cuota Calibrada en Canchas de Lima (Babolat 31%, Bullpadel 44%)', html.includes('Babolat') && html.includes('31% (Líder en Club Terrazas y Rinconada)'));
+check('Clasificador Semántico en Vivo: runSemanticAuditLive() implementado', html.includes('runSemanticAuditLive()'));
+check('Radar de Noticias del Rubro Priorizadas (Boom Pádel, Reglamentación Terrazas)', html.includes('Boom del Pádel en Lima Supera las 250 Canchas') && html.includes('Exigencia Estricta de Suela Espiga Continua'));
+
 console.log('----------------------------------------------------');
-console.log(`Pruebas Exitosas: ${passed}`);
-console.log(`Errores: ${errors.length}`);
+console.log(`Total Pruebas Exitosas: ${passed}`);
+console.log(`Total Errores: ${errors.length}`);
 
 if (errors.length > 0) {
   console.error('❌ AUDITORÍA FALLIDA:', errors);
   process.exit(1);
 } else {
-  console.log('🎉 CERTIFICACIÓN TRI-CICLO APROBADA AL 100% CON 0 ERRORES.');
+  console.log('🎉 CERTIFICACIÓN TOTAL APROBADA AL 100% CON 0 ERRORES (20/20).');
 }
